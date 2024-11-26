@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+        :lang(en) {
+            font-family: 'Noto Sans', sans-serif; /* 영어 텍스트에만 Noto Sans 적용 */
+        }
+        
+        body{
+            margin: 0; /* 기본 마진 제거 */
+            height: 2400px; /* 전체 화면 높이 설정 */
+            background: url('insightBack.png');
+        }
+
+        /*nav css 시작*/
+        .navBox {
+            background: linear-gradient(to top, rgba(217, 217, 217, 0), rgba(217, 217, 217, 1)20%);
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            top: 0;
+            
+        }
+
+
+        nav {
+            width: 100%;
+            height: 100px;
+            position: fixed; /* 고정 위치 설정 */
+            top: 58px; /* 페이지 상단에 위치 */
+            left: 120px; /* 페이지 왼쪽에 위치 */
+            z-index: 1; /* header보다 위에 배치 */
+        }
+        
+
+        nav ul {
+            list-style: none; /* 기본 목록 스타일 제거 */
+            padding: 0; /* 패딩 제거 */
+            margin: 0; /* 마진 제거 */
+            display: flex; /* 가로 정렬 */
+        }
+        
+        nav li {
+            margin-right: 80px; /* 항목 간 간격 설정 */
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        nav a {
+            text-decoration: none; /* 기본 밑줄 제거 */
+            color: #173B66;
+            font-weight: normal;
+        }
+
+        .guestBook {
+            margin-left: 45%;
+        }
+        /*nav css 끝*/
+
+
+        .text {
+            width: 100%;
+            margin-top: 100px;
+        }
+
+        .artist {
+            width: 100%;
+            height: 550px;
+            
+        }
+
+        
+        .title {
+            width: 35%;
+            color: #ff4f4f;
+            display: flex; /* Flexbox 사용 */
+            justify-content: center; /* 수평 중앙 정렬 */
+            font-size: 2em; /* 글자 크기를 3배로 설정 */
+            font-weight: bold; /* 굵게 설정 (선택 사항) */
+        }
+
+
+        .mainArticle, .mainArticle2 {
+            
+            display: flex; /* Flexbox 사용 */
+            align-items: center; /* 수직 중앙 정렬 */
+            flex-direction: column; /* 세로 방향으로 요소 정렬 */
+            width: 100%; /* 전체 너비 사용 */ 
+        }
+
+        .mainArticle2 {
+            margin-top: 8% ;
+        }
+
+
+        .article1 ,.article2, .article3, .article4, .article5 {
+            width: 60%;
+            justify-content: center; /* 수평 중앙 정렬 */
+        }
+
+        .article1 { margin-bottom: 5%;}
+        .article2 {
+            display: flex; /* Flexbox 사용 */
+            justify-content: space-between; /* 두 요소 사이에 공간을 균등하게 배분 */
+            margin-top: 20px; /* 필요에 따라 여백 추가 */
+        } 
+
+        .text1, .text2, .text5, .text6, .text7, .text8 {
+            line-height: 30px;
+            flex-direction: column; /* 세로 방향으로 요소 정렬 */
+            display: flex;
+            margin-top: 3%;
+            color: #173B66;
+            font-weight: 400;
+        }
+
+        .text3 { 
+            width: 50%;
+            height: 500px;
+            display: flex; /* Flexbox 사용 */
+            line-height: 30px;
+            color: #4f4f4f;
+            font-weight: 400;
+        }
+
+        .text4 {
+            width: 50%; /* 너비 설정 */
+            display: flex; /* Flexbox 사용 */
+            justify-content: center; /* 수평 중앙 정렬 */
+            line-height: 30px;
+            color: #4f4f4f;
+            font-weight: 400;
+            
+        }
+        
+        .caption1 {
+             width: 60%;
+            margin-top: 20px;
+        }
+
+        .caption1 > p {
+            font-size: 16px;
+        }
+
+        .article5 > div > img {
+            margin-bottom: 30px;
+        }
+        .description {
+            width: 60%;
+            margin-top: 40px;
+            color: #4f4f4f;
+            font-weight: 400;
+            margin-bottom: 70px;
+        }
+
+        .description1{
+            width: 100%;
+            margin-top: 40px;
+            color: #4f4f4f;
+            font-weight: 400;
+            margin-bottom: 70px;
+        }
+        
+        .name {
+            color: #4f4f4f;
+            text-align: right;
+        }
+
+
+        /*텍스트 css 끝*/
+
+        
+        .credit {
+            width: 40%;
+        }
+        
+        .creditTitle {
+            text-align: center; /* 중앙 정렬 */
+            width: 100%; /* 한 줄을 모두 사용 */
+            font-size: 1.5em; /* 제목 크기 조정 (선택적) */
+            height: 200px;
+            font-weight: bolder;
+            color: #173B66;
+        }
+        
+        .credit_div {
+            display: flex; /* 가로로 배치 */
+            justify-content: space-between; /* 양쪽 끝으로 배치 */
+            margin-bottom: 200px;
+        }
+        
+        .creditMain, .creditName {
+            width: 40%; /* 각각 절반의 width 차지 */  
+            line-height: 40px;
+            font-size: 16px;
+            font-weight: bold ;
+            color: #173B66;
+        }
+
+        hr {
+            border: none; /* 기본 테두리 제거 */
+            height: 1px; /* 두께 설정 */
+            background-color: #173B66; /* 색상 설정 */
+            margin-bottom: 130px;
+            width: 50%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 16px;
+            line-height: 30px;
+            color: #173B66;
+        }
+
+        @media (max-width : 1220px) {
+            body { width: 100%;}
+            .navBox {
+                background-color: rgba(217, 217, 217, 0); /* 데스크탑에서 초기 투명도 0 */
+            }
+        }
+
+        @media (max-width : 768px) {
+            body {width: 100%;}
+            header { width: 100%; height: 423px; }
+            .navBox {
+               height: 100px;
+            }
+            .scrolled {
+                background-color: rgba(217, 217, 217, 1); /* 스크롤 시 투명도 100 */
+            }
+
+        }
+
+        @media (max-width : 480px) {
+            body {width: 100%; height: 2900px;}
+            header { width: 100%; height: 247px; }
+            nav { width: 100%;; top: 20px; left: 20px;}
+            nav li { font-size: 15px; margin-right: 50px;}
+            .title { font-size: 1.5em; width: 50%;}
+            .text {width: 100%; }
+            .article1 ,.article2, .article3, .article4 {
+                width: 70%;
+                flex-direction: column; /* 세로 방향으로 정렬 */
+            }
+            .link {
+                width: 320px;
+                overflow-wrap: break-word; /* 자동 줄바꿈 */
+                
+
+            }
+            .text {width: 100%; } 
+            .text1, .text3, .text5, .text7 { width: 100%; font-weight: 800;}
+            .credit { width: 70%;}
+            .text2, .text4, .text6, .text8{ width: 100%;}
+            .sectionTitle {height: 80px;}
+            .artist {width: 100%; height: 900px;}
+            .artistIMG {flex-direction: column; /* 세로 방향으로 정렬 */ }
+            .img1, .img2, .img3 { margin-top: 10%;}
+            .navBox {
+                background-color: rgba(217, 217, 217, 0); /* 데스크탑에서 초기 투명도 0 */
+                height: 70px;
+            }
+            .scrolled {
+                background-color: rgba(217, 217, 217, 1); /* 스크롤 시 투명도 100 */
+            }
+            .footer > p{
+                width: 80%;
+                margin-left: 45px;
+                
+            }
+        }
+
+    </style>
+</head>
+<body>
+        <div class="navBox">
+            <nav>
+                <ul>
+                    <li class="insight"><a href="">Insight</a></li>
+                    <li class="el"><a href="el.html">얼</a></li>
+                    <li class="outsight"><a href="outsight.html" style="color: #ff4f4f;">Outsight</a></li>
+                    <li class="guestBook"><a href="guestBook.html">Guest book</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="contents" id="content-area">
+            <section class="text">
+                <div class="title">
+                    <h1>Individual <br>
+                        Outsight</h1>
+                </div>
+                <div class="mainArticle">
+
+                    <div class="article1">
+                        <p class="text1">전시《얼:[əl] in New York》을 기획하는 과정에서 뉴욕에서 활동하는 예술 관련 종사자들과 만남을 가졌다.
+                                        보는 이들에게 도움이 되기를 바라며 이 경험을 공유한다. </p>
+                        <p class="text2">In the process of organizing the exhibition 《얼:[əl] in New York》, 
+                            we met with art professionals active in New York. We hope that sharing this 
+                            experience will be helpful to others.</p>
+                    </div>
+
+                    <div class="article2">
+                        <div class="text3"><img src="outsightIMG1.png" alt=""></div>
+                        <p class="text4">RYAN LEE GALLERY는 2013년 Mary Ryan과 <br>
+                            Jeffrey Lee에 의해 설립된 갤러리다. 전후 <br>
+                            예술부터 현대 예술까지 폭넓은 예술을 다루며,<br>
+                            신진 및 기성 작가들의 유산을 기념하는 혁신적이고 <br>
+                            학술적인 전시를 선보인다. 또한, 정치적, 문화적,<br>
+                            물질적 경계를 초월하는 예술가들을 지원한다. <br><br>
+
+                            RYAN LEE GALLERY was established in 2013 <br>
+                            by Mary Ryan and Jeffrey Lee. The gallery <br>
+                            covers a wide range of art from post-war to <br>
+                            contemporary, showcasing innovative and <br>
+                            scholarly exhibitions that celebrate both <br>
+                            emerging and established artists. It also <br>
+                            supports artists who transcend political,<br>
+                             cultural, and material boundaries</p>
+                    </div>
+                    <div class="caption1"><h3>Ryan Lee Gallery</h3><p>515 W 26th St floor 3, New York, NY 10001 미국</p></div>
+                    <div class="description">
+                        <p>예술가는 자신을 고립시키지 말고 사회적 관계를 유지해야 하는 것이
+                            중요하다. 창의력을 발전시키고 작업을 개선하려면 다양한 경험이 중요하다.
+                            많은 것을 보고 읽고 느끼는 것이 세상을 보는 눈을 크게 넓혀줄 것이다.
+                            <br><br>
+                            It is important for artists not to isolate themselves but to
+                             maintain social relationships. To develop creativity and improve
+                             their work, various experiences are essential. Watching, reading,
+                              and feeling a lot will greatly broaden their perspective of the world.</p>
+                            <p class="name">   - Derek Piech </p>
+                    </div>
+                    <div class="article2">
+                        <div class="text3"><img src="outsightIMG2.png" alt=""></div>
+                        <p class="text4">뉴욕한국문화원(KCCNY)은 1979년 뉴욕 <br>
+                            대한민국총영사관의 소속기관으로 설립된 이래<br>
+                            한국 문화의 이해 및 한미관계의 우호 증진을 위해<br>
+                            노력해온 기관이다. 문화원은 매년 전시회와 공연,<br>
+                            한국영화상영회, 한국음식축제 등 다양한 문화<br>
+                            활동을 개최하고 있으며, 한미 양국간의 우호와 교류<br>
+                            증진을 위한 다양한 정보를 제공하고 있다.
+                            <br><br>
+                            Established in 1979 as part of the Korean <br>
+                            Consulate General in New York, the Korean <br>
+                            Cultural Center New York promotes Korean <br>
+                            culture and fosters US-Korea relations. It <br>
+                            hosts various cultural activities annually,<br>
+                            including exhibitions, performances, film <br>
+                            screenings, and food festivals, while <br>
+                            providing information to enhance bilateral <br>
+                            exchanges.
+                    </div>
+                    <div class="caption1"><h3>뉴욕문화원 (KCCNY)</h3><p>122 E 32nd St, New York, NY 10016 미국</p></div>
+                    <div class="description">
+                        <p>
+
+
+                            다양한 경험과 능력을 바탕으로 성실함을 보여주는 인재라면
+                            세계로 뻗어나갈 가능성은 무한하다. 문화원의 목표와 같이 한국과 세계를 연결하는 인재로서 성장하길 기원한다.
+                            <br><br>
+                            With diverse experiences and abilities,
+                             a diligent person has limitless potential to expand globally.
+                              I hope you grow as a talent that connects Korea with the world, 
+                              just like the goals of the cultural center
+                            </p>
+                            <p class="name"> - 이성은 </p>
+                    </div>
+                    <div class="article2">
+                        <div class="text3"><img src="outsightIMG3.png" alt=""></div>
+                        <p class="text4">뉴욕에 위치한 예술 학교인 School of Visual <br>
+                            Arts(SVA)는 뛰어난 현업 전문가들로 구성된 <br>
+                            교수진, 역동적인 커리큘럼, 비판적 사고에 대한 <br>
+                            강조를 통해 SVA는 혁신과 사회적 책임의 촉매제 <br>
+                            역할을 하고자 하는 곳이다. SVA의 목표는 미래 <br>
+                            세대의 예술가, 디자이너 및 창의적 전문가들을 <br>
+                            교육하는 것이다.
+                            <br><br>
+                            School of Visual Arts is an art school of New <br>
+                            York. With a faculty of distinguished working <br>
+                            professionals, dynamic curriculum and an <br>
+                            emphasis on critical thinking, SVA is a <br>
+                            catalyst for innovation and social <br>
+                            responsibility. Their mission is to educate <br>
+                            future generations of artists, designers and <br>
+                            creative professionals.</p>
+                    </div>
+                    <div class="caption1"><h3>SVA Photography Building</h3><p>214 E 21st St, New York, NY 10010 미국</p></div>
+                    <div class="description">
+                        <p>세계적인 첼리스트도 하루 몇 시간씩 연습을 한다. 그 첼리스트는
+                             “난 내가 더 잘할 수 있다고 생각한다”며 연습을 쉬지 않았다고 답했다. 좋은 예술가가 되려면
+                              늘 작업에 대해 생각하고 계속 연습해야 한다. 우리는 창의력을 예술로 발전시킬 수 있는 운 좋은 사람들이다.
+                               이 점을 기억하고 자부심을 느끼길 바란다.
+                            <br><br>
+                            World-renowned cellists also practice for several hours a day. He said,
+                            "I think I can do better," and never stopped practicing. To become a good artist,
+                             you must always think about your work and keep practicing. We are lucky to be people
+                              who can develop creativity into art. I hope you remember this and feel proud.</p>
+                            <p class="name">     - Charles H. Traub  </p>
+                    </div>
+                    
+                </div>
+               
+            <section class="mainArticle2">
+                <div class="article5">
+                    <div><img src="swirlLogo.png" alt=""></div>
+                    <div class="caption1">
+                        <h3>SWIRL COLLECTIVE</h3>
+                        <div class="link">
+                            <p>
+                                <a class="linka" href="https://www.instagram.com/theswirlcollective?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">https://www.instagram.com/theswirlcollective?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="description1">
+                        <p>세계적인 첼리스트도 하루 몇 시간씩 연습을 한다. 
+                            그 첼리스트는 “난 내가 더 잘할 수 있다고 생각한다”며 연습을 쉬지 않았다고 답했다. 좋은 예술가가 되려면 늘 작업에 대해 생각하고 계속 연습해야 한다. 우리는 창의력을 
+                            예술로 발전시킬 수 있는 운 좋은 사람들이다. 이 점을 기억하고 자부심을 느끼길 바란다.
+                            <br><br>
+                            World-renowned cellists also practice for several hours a day. He said,
+                            "I think I can do better," and never stopped practicing. To become a good artist,
+                             you must always think about your work and keep practicing. We are lucky to be people
+                              who can develop creativity into art. I hope you remember this and feel proud.</p>
+                            <p class="name">     - 오경민  </p>
+                    </div>
+                </div>
+            </section>  
+            <section class="mainArticle2">
+                <hr>
+                <div class="credit">
+                    <div class="creditTitle">Credit</div>
+                    <div class="credit_div">
+                        <div class="creditMain">참여작가</div>
+                        <div class="creditName">구지회<br>문예지<br>허 정</div>
+                    </div>
+                </div>
+                <div class="credit">
+                    <div class="credit_div">
+                        <div class="creditMain">Special Thanks to</div>
+                        <div class="creditName">김혜미 작가<br>뉴욕한국문화원 이성은<br>박근영 작가
+                        <br>성신여자대학교 임상빈 교수<br>오경민 swirl 운영자<br>Rtan Lee Galley Derek Piech
+                        <br>Sva Charles H. Traub <br>Sva Eliza Newman
+                        </div>
+                    </div>
+                </div>
+                <div class="credit">
+                    <div class="credit_div">
+                        <div class="creditMain">웹 사이트 개발</div>
+                        <div class="creditName">박채빈</div>
+                    </div>
+                </div>
+                <div class="credit">
+                    <div class="creditTitle">팀 뉴토피아</div>
+                    <div class="credit_div">
+                        <div class="creditMain">전시 글</div>
+                        <div class="creditName">김서영<br>신보경<br>전윤하</div>
+                    </div>
+                    <div class="credit_div">
+                        <div class="creditMain">포스터 디자인</div>
+                        <div class="creditName">문예은<br>박주은</div>
+                    </div>
+                    <div class="credit_div">
+                        <div class="creditMain">웹 사이트 디자인</div>
+                        <div class="creditName">김서영<br>문예은<br>박주은<br>신보경<br>전윤하</div>
+                    </div>
+                    <div class="credit_div">
+                        <div class="creditMain">촬영 및 영상 편집</div>
+                        <div class="creditName">문예은<br>임세연</div>
+                    </div>
+                </div>
+            </section>
+            <div class = "footer"style="width: 100%; height : 400px">
+                <p>
+                    <b>전시를 봐주신 모든 분들께 감사의 말씀을 전합니다.</b> <br>
+                    Newtopia는 한국과 뉴욕 뿐만이 아닌 세계 각지를 연결하는 커뮤니케이션의 장이 되기 위해 <br>
+                    끊임없이 노력하겠습니다. <br><br>Team Newtopia
+                </p>
+
+            </div>
+        </div>
+
+        <script>
+            const navBox = document.querySelector('.navBox');
+    
+            // 화면 크기에 따라 스크롤 임계값을 설정하는 함수
+            function getScrollThreshold() {
+                return window.innerWidth <= 768 ? 100 : 700; // 모바일에서는 30px, 데스크탑에서는 50px
+            }
+    
+            // 스크롤 이벤트 리스너
+            window.addEventListener('scroll', function() {
+                const scrollThreshold = getScrollThreshold(); // 현재 화면 크기에 따른 임계값
+    
+                if (window.scrollY > scrollThreshold) {
+                    navBox.classList.add('scrolled'); // 클래스를 추가하여 배경색 변경
+                } else {
+                    navBox.classList.remove('scrolled'); // 클래스를 제거하여 초기 상태
+                }
+            });
+    
+            // 화면 크기 변경 시 임계값 업데이트
+            window.addEventListener('resize', function() {
+                const scrollThreshold = getScrollThreshold(); // 현재 화면 크기에 따른 임계값
+                if (window.scrollY > scrollThreshold) {
+                    navBox.classList.add('scrolled');
+                } else {
+                    navBox.classList.remove('scrolled');
+                }
+            });
+        </script>
+    
+</body>
+</html>

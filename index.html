@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { padding: 0; margin: 0; }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+:lang(en) {
+    font-family: 'Noto Sans', sans-serif; /* 영어 텍스트에만 Noto Sans 적용 */
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0; /* 기본 마진 제거 */
+    height: 2400px; /* 전체 화면 높이 설정 */
+    background: 
+        url('mainGravity.png') no-repeat center center,
+        url('layoutBackImg.png') no-repeat center center; /* 첫 번째 배경 이미지 */
+         /* 두 번째 배경 이미지 */
+    background-size: 1520px 1440px,cover; /* 두 배경 이미지 크기 조정 */
+    background-position: top center;
+    position: relative; /* 자식 요소의 절대 위치를 위해 상대 위치 설정 */
+}
+
+ 
+body::before {
+    content: '';
+    position: absolute; /* 절대 위치 설정 */
+    top: 0; /* 상단에 위치 */
+    left: 0; /* 좌측에 위치 */
+    right: 0; /* 우측에 위치 */
+    bottom: 0; /* 하단에 위치 */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* 그라데이션 설정 */
+    z-index: 1; /* 그라데이션을 다른 요소 위에 표시 */
+}
+
+#wrap { width: 1280px; margin: 0 auto; }
+
+.bgText {
+    z-index: 1;
+    position: absolute;
+    margin: 18% 0 0 0;
+    transform: scaleY(-1);
+    display: inline-block; /* transform이 적용되도록 inline-block으로 설정 */
+    color: white;
+    text-align: left;
+
+}
+
+header { 
+    width: 100%;
+    height: 100px;
+    
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    
+     }
+
+#mainSection { float: left; width: 70%; height: 1100px; }
+
+aside { float: left; width: 30%; height: 1100px; } 
+
+.asideText  {
+    margin: 70% 0 0 0;
+    text-align: right;
+    line-height: 100%;
+}
+
+article {
+    clear: both;
+    width: 100%;
+    height: 895px;
+    /*background: green;*/
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 자식 요소를 수직으로 쌓기 */
+    align-items: center; /* 자식 요소를 수평 중앙 정렬 */
+    
+    position: relative; /* 자식 요소의 절대 위치를 위해 상대 위치 설정 */
+    z-index: 2; /* 텍스트가 그라데이션 위에 오도록 z-index 설정 */
+    float: left; 
+}
+
+header > div > div { display: inline-block; }
+
+.nameBox    {
+    width: 80%;
+    height: 40px;
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+}
+
+.dateBox {
+    
+    width: 12%;
+    margin: 0 0 0 70%;
+    z-index: 2;
+    position: absolute;
+}
+
+.date {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.name1, .name2, .name3 {
+    width: 23%;
+    text-align: center;
+    font-size: 1rem; /* 20px */
+    font-weight: 400;
+    font-stretch: ultra-expanded;
+    
+}
+
+h1 {
+    font-family: 'Noto Sans KR';
+    font-weight: bold;
+    font-size: 10rem; /* 128px */
+    margin: 12% 0px 0 25%;
+    font-stretch: ultra-expanded;
+    width: 100%;
+    position: relative; /* h1의 위치를 상대적으로 설정 */
+    z-index: 2;
+    
+}
+h2 {
+    font-family: 'Noto Sans ENG';
+    font-weight: 400;
+    font-size: 3.33rem; /* 128px */
+    margin: 0 0 0 28%;
+    width: 100%;
+     
+    
+
+}
+
+.texttTitle {
+    width: 55%;
+    height: 100px;
+    color: white;
+    display: flex; /* Flexbox 사용 */
+    justify-content: left; /* 수평 중앙 정렬 */
+    font-size: larger;
+    
+}
+
+.textBox {
+    width: 70%;
+    height: 680px; 
+    
+    }
+
+.textBox1, .textBox2, .textBox3, .textBox4 {
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+
+}
+.textKR, .textKR2, .textENG, .textENG2 {
+    text-indent: 7%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal; /* 'regular'는 CSS에서 사용되지 않음 */
+    font-size: 0.875rem; /* 14px */
+    color: white;
+    line-height: 200%;
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    width: 80%;
+    
+    
+}
+.BUTTON {
+    justify-content: center;
+    display: flex; /* Flexbox 사용 */
+    height: 20%;
+    margin: 10%;
+}
+
+button {
+    background: transparent; /* 배경을 투명하게 설정 */
+    border: none; /* 테두리 제거 (필요 시) */
+    color: white;
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
+
+
+
+
+/* 화면 너비 0~1200px */
+@media (max-width: 1220px) {
+    #wrap { width: 100%; }
+    body { 
+        width: 100%;
+        }
+}
+
+/* 화면 너비 0~768px */
+@media (max-width: 768px) {
+    #wrap { width: 100%; }
+    body {
+            width: 100%;
+        }
+    aside {float: none; width:800px ; height: 400px;}
+    .asideText {margin-top: 50%;}
+    .dateBox { width: 120px; margin-top: 30px;}
+    .name1, .name2, .name3, .date { font-size: 14px;}
+}
+
+/* 화면 너비 0~480px */
+@media (max-width: 480px) {
+    body {width: 100%; height: 2600px;}
+    body::before { background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));}
+    #wrap { width: 100%; }
+    header { width: 100%; height: 70px;}
+    aside { float: none; width: 100%; height: 600px; }
+    #mainSection { float: none; width: 100%; height: 300px;}
+    header >  .nameBox { width: 500px; }
+
+    /*폰트 사이즈 등 조정*/
+    .dateBox { width: 100px; margin-top: 30px;}
+    .name1, .name2, .name3, .date { font-size: 12px;}
+    h1 {font-size: 120px; margin: 15% 0px 0 8%;}
+    h2 {font-size: 40px; margin: 0 0 0 14% ;}
+    .asideText {font-size: 14px; margin: 0 0 0 0;}
+    .bgText {font-size: 12px;}
+    
+}
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="bgText">In the context of Korean culture, "eol" is often associated with <br>
+            qualities such as integrity, perseverance, and a profound sense of <br>
+            purpose. It is considered a fundamental element that shapes one's <br>
+            actions, values, and life path. The concept of "eol" also extends to the <br>
+            collective consciousness, representing the shared spirit and cultural <br>
+            identity of the Korean people.</div>
+        <header>
+            <div class="nameBox">
+                <div class="name1">Y E J I  M O O N</div>
+                <div class="name2">J I H O E  K O O</div>
+                <div class="name3">J E O N G  H U R</div>
+            </div>
+            <div class="dateBox">
+                <div class="date">2 0 2 4 . 0 9 . 2 4</div>
+            </div>
+        </header>
+        <section id="mainSection">
+            <h1>얼:[əl]</h1>
+            <h2>in NewYork</h2>
+        </section>
+        <aside>
+            <div class="asideText">
+                "Eol" is a uniquely Korean concept that<br>
+                doesn't have a direct equivalent in<br>
+                English. It refers to the innate spirit,<br>
+                soul, or essential character of a person,<br>
+                community, or culture. This term<br>
+                embodies the idea of a deep, intrinsic<br>
+                force that defines the core identity and<br>
+                resilience of individuals or groups.<br>
+                In the context of Korean culture, "eol" is<br>
+                often associated with qualities such as<br>
+                integrity, perseverance, and a profound<br>
+                sense of purpose. It is considered a<br>
+                fundamental element that shapes one's<br>
+                actions, values, and life path. The<br>
+                concept of "eol" also extends to the<br>
+                collective consciousness, representing<br>
+                the shared spirit and cultural identity of<br>
+                the Korean people.<br>
+                Overall, "eol" encapsulates a rich and<br>
+                multifaceted understanding of the<br>
+                human spirit, emphasizing moral<br>
+                fortitude, cultural pride, and an<br>
+                unwavering commitment to one's<br>
+                principles and heritage.<br>
+            </div>
+        </aside>
+        <article>
+            <section class="texttTitle">
+                <h3>전시개요</h3>
+            </section>
+            <section class="textBox">
+                <div class="textBox1">
+                    <p class="textKR">《얼:[əl] in NewYork》은 타지에서 외국인으로서 활동하며 정체성을 표현하는 다양한 방식을 보여주는 
+                        프로젝트의 첫번째로, 뉴욕에서 활동 중인 구지회, 문예지, 허정 작가와 함께한다. 이들은 외지에서 새로운 경험을 
+                        하며 쌓은 시간 하나하나로 자신의 정체성을 견고하게 만들고 있다. <br>
+                     </p>
+                </div>
+                <div class="textBox2">     
+                     <p class="textKR2">
+                       ‘얼’ 은 한국의 고유한 단어로 정신의 줏대를 의미한다. 타지에서 자신만의 정체성을 구축해가는 이들의
+                        얼을 관객들에게 선보이며 전시에 참여하는 모든 이들은 이 전시를 통해 연결 고리를 만들게 된다. 본 전시
+                        는 온라인 전시로 진행된다. 이 전시를 통해 관람자들에게 자신만의 ‘얼’에 대해 생각하고 소통하는 기회를 제공하고자 한다. <br><br><br><br>
+                     </p>
+                </div>
+
+                <div class="textBox3">
+                    <p class="textENG">《얼: [əl] in New York》 is the first project in a series that shows various ways of expressing
+                        identity as a foreigner living abroad. It features Jihoe Koo, Yeji Moon, and Jeong Heo, who are
+                        artists in New York. These individuals are solidifying their identities through every new experience
+                        they gain while living away from their home country.
+                         <br>
+                </div>
+                <div class = "textBox4">
+                     <p class="textENG2">
+                        The term ‘얼’ is a indigenous Korean word meaning the essence of one's spirit or resolve. By
+                        presenting the ‘얼’ of those who are building their identities in a foreign land, this exhibition aims to
+                        create a connection between the participants and the audience. The exhibition will be held online,
+                        providing viewers with the opportunity to reflect on and engage with their own '얼.'
+                     </p>
+                </div>
+                
+                 <div class="BUTTON">
+                    <button onclick="location.href='insight.html'">전시 보러가기 ></button>
+                </div>
+            </section>
+        </article>
+
+    </div>
+</body>
+</html>
