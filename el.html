@@ -13,7 +13,9 @@
         
         body {
             margin: 0; /* 기본 마진 제거 */
-            height: 2400px; /* 전체 화면 높이 설정 */
+            background: 
+            url('kooGravity.png') no-repeat center top;
+            background-size : 1400px, cover;
             
         }
 
@@ -99,18 +101,40 @@
         .artwork5Note,  .artwork7Note
         ,.artwork8Note {
             width: 50%;
+            height: 70%;
             display: flex; /* Flexbox 사용 */
             align-items: center; /* 수직 중앙 정렬 */
             flex-direction: column;
+            overflow: auto; /* 내용이 넘칠 경우 스크롤 생성 */
             
         }
+
         
+        
+
         .artwork2Note > p, .artwork3Note > p , .artwork4Note > p,
         .artwork5Note > p, .artwork7Note > p,
         .artwork8Note > p {
             width: 65%;
-            
+            line-height: 30px;
         }
+
+        #description3, #description4, #description5, #description7{
+            display: none;
+        }
+
+/*        .artwork5Note > p {
+            z-index: 1;
+            position: relative; /* z-index를 사용하기 위해 position을 설정 */
+       /* } 
+
+        .bg {
+                width: 50%; /* 너비를 100%로 설정 */
+         /*       height: 200%;
+                background-color: white; /* 배경색을 하얀색으로 설정 */
+         /*       z-index: 0; /* 다른 요소들 아래에 위치 */
+        /*         position: absolute; /* 절대 위치 지정 */
+       /* } */
 
 
         .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main,
@@ -247,9 +271,11 @@
             display: flex; /* Flexbox 사용 */
             align-items: center; /* 아이콘과 텍스트 수직 정렬 */
             margin-bottom: 10px; /* 아래쪽 여백 추가 */
+        
         }
         
         .insta img, .mail img {
+            width: 20px;
             margin-right: 8px; /* 아이콘과 텍스트 사이의 간격 조정 */
         }
 
@@ -287,19 +313,35 @@
         .otherArtist div {
             cursor: pointer; /* 마우스 오버 시 포인터 변경 */
         }
+
+        .otherArtist img {
+            width: 70%;
+            z-index: 0;
+            position: relative;
+        }
         
         .otherArtist > div a {
             text-decoration: none; /* 링크 밑줄 제거 */
             color: inherit; /* 부모 요소의 색상 상속 */
         }
         
-        /* 마우스 오버 스타일 */
-        .otherArtist div:hover {
-            color: #86D9CA; /* 색상 변경 */
-            font-family: 'Noto Sans KR', sans-serif; /* Noto Sans로 변경 */
-            font-weight: 800; /* Extra Bold */
-        }
 
+
+
+        .artwork3IMG > img {
+            position: relative;
+            z-index: 0;
+        }
+        .Sbutton {
+            position: absolute;
+            right: 9%;
+            margin-top: 41%;
+            z-index: 1;
+            /* 기본 배경 및 테두리 없애기 */
+            background: none; /* 배경 없애기 */
+            border: none; /* 테두리 없애기 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+        }
 
         @media (max-width : 1220px) {
             body { width: 100%;}
@@ -327,6 +369,10 @@
             .artwork6Caption, .artwork8Caption {margin-right: 3%;}
             .link {
                 margin-left : 17%;
+            }
+            .Sbutton{
+                margin-top: 55%;
+                right: 6%;
             }
         }
 
@@ -415,6 +461,21 @@
             .link {
                 margin-left: 17%;
             }
+
+            .Sbutton {
+                margin-top: 110%;
+            }
+
+            .artwork2Note, .artwork3Note, .artwork4Note,
+            .artwork5Note,  .artwork6Note, .artwork7Note
+            ,.artwork8Note {
+                order: 2; /* 아트워크 노트를 두 번째로 설정 */
+            }
+        
+            .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main, .artwork6Main
+            .artwork7Main, .artwork8Main {
+                order: 1; /* 작품 이미지를 첫 번째로 설정 */
+            }
         }
         
 
@@ -425,6 +486,7 @@
     <div class="navBox">
         <nav class="mainNav">
             <ul>
+                <li><a href="index.html">전시개요</a></li>
                 <li><a href="insight.html">Insight</a></li>
                 <li style="height: 50px">
                     <a href="el.html" style="color: #ff4f4f; font-weight: bolder;">얼</a>
@@ -496,12 +558,21 @@
                 <!-- 작품3 구역 -->
                 <div class="artwork3">
                     <div class="artwork3Note">
-                        <p>
+                        <p id="description3">
+                            You can move forward. <br>
+                            But you can not go back. <br>
+                             New York subway turnstile spin is like time. <br>
+                            <br>
+                            앞으로 나아갈 수는 있지만 <br>
+                            다시 돌아갈 수 없다. <br>
+                            뉴욕 지하철의 출구 회전문은 <br>
+                            시간과 같다.
                         </p>
                     </div>
                     <div class="artwork3Main">
                         <div class="artwork3IMG">
-                            <img src="JidhoeKoo_03.jpg" alt="" >
+                            <img src="JihoeKoo_03.jpg" alt="" >
+                            <button class="Sbutton" id="searchButton3" ><img src="search.png" style="width: 18px; height: 16px;" alt=""></button>
                         </div>
 
                         <div class="artwork3Caption">
@@ -511,16 +582,39 @@
                                 collages and stencil on printmaking <br>
                                 19 x 13 inch, 2021.</div>
                         </div>
+                        
                     </div>
                 </div>
+                
                 <div class="artwork4">
                     <div class="artwork4Note">
-                        <p>
+                        <p id="description4">
+                            The blue bird. (by Jihoe Koo) <br>
+                            Happiness was neither dream nor fantasy.<br>
+                            It was not far from me.<br>
+                            It was right now.<br>
+                            It was not happy even if I could have the blue bird.<br>
+                            Even without the blue bird,<br>
+                            Happiness is to love my being.<br>
+                            It is the present time to challenge my life and take adventure.<br>
+                            Are you happy now?<br>
+                            <br>
+                            행복이란 꿈도 환상도 아니었다.<br>
+                            바로 지금인 것이었다.<br>
+                            파랑새를 가져야만 행복한 것은 아니었다.<br>
+                            파랑새가 없어도,<br>
+                            지금의 나의 존재를 사랑하며<br>
+                            개척하고 도전하며<br>
+                            만들어가는 삶의 시간들이<br>
+                            바로 행복인 것이다.<br>
+                            당신은 지금 행복한가요?<br>
                         </p>
                     </div>
                     <div class="artwork4Main">
                         <div class="artwork4IMG">
                             <img src="JihoeKoo_04.jpg" alt="" >
+                            <button class="Sbutton" id="searchButton4" ><img src="search.png" 
+                                style="width: 18px; height: 16px;" alt=""></button>
                         </div>
 
                         <div class="artwork4Caption">
@@ -530,16 +624,59 @@
                                 collages on printmaking <br>
                                 19 x 13 inch, 2017.</div>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="artwork5">
                     <div class="artwork5Note">
-                        <p>
+                        <p id="description5">
+                            You and I caught by the parks heavy rain <br>
+                            With a single umbrella<br>
+                            “Take it first!”<br>
+                            “You take it first!”<br>
+                            Passing the umbrella back and forth,<br>
+                            We end up drenched in rain.<br>
+                            And we giggle and we dance<br>
+                            to the sound of the rain drops.<br>
+                            You and I, everything is different<br>
+                            We can't ever be the same<br>
+                            “I'm not like you.”<br>
+                            “You’re not like me.”<br>
+                            Our lives are upside down<br>
+                            Yet they cross<br>
+                            Perfectly perpendicular.<br>
+                            However, just as we laugh<br>
+                            and just as we get drenched<br>
+                            We are one (1) with the same feeling.<br>
+                            Perfectly perpendicular<br>
+                            Like the reciprocal, we learned in math.<br>
+                            <br>
+                            너와 나, 큰비를 만났지<br>
+                            우리에겐 하나뿐인 우산<br>
+                            “네가 먼저 가져가!”<br>
+                            “네가 먼저 가져가!”<br>
+                            우산을 서로 주고받고 양보하다가,<br>
+                            그만 비에 흠뻑 젖어버렸지.<br>
+                            우리는 서로 깔깔 웃으며, 빗방울 소리에 맞춰 춤을 추었지.<br>
+                            너와 나, 우리는 모두 다르지<br>
+                            같은 모양이 될 수 없는 우리들<br>
+                            “넌 나랑 달라!”<br>
+                            “난 너랑 달라!”<br>
+                            우리의 형태는 서로 거꾸로 되어 있지.<br>
+                            우리는 우리의 삶 속에서 교차하며 살고 있지.<br>
+                            그러나, 너와 내가 함께 웃으며 비를 맞을 수 있듯이<br>
+                            같은 마음으로 우리는 하나 (1) 가 될 수 있지.<br>
+                            <br>
+                            수학의 역수처럼.<br>
                         </p>
+                        <div class="bg"></div>
+                        
                     </div>
                     <div class="artwork5Main">
                         <div class="artwork5IMG">
                             <img src="jihoeKoo_05.jpg" alt="" >
+                            <button class="Sbutton" id="searchButton5" ><img src="search.png" 
+                                style="width: 18px; height: 16px;" alt=""></button>
                         </div>
 
                         <div class="artwork5Caption">
@@ -568,12 +705,33 @@
                 </div>
                 <div class="artwork7">
                     <div class="artwork7Note">
-                        <p>
+                        <p id="description7">
+                            It was a long day. <br>
+                            Waiting time for mom<br>
+                            It was longer than the New York subway.<br>
+                            It was a long day.<br>
+                            Waiting time for mom<br>
+                            It was longer than those standing on the platform.<br>
+                            It was a long day.<br>
+                            Waiting time for mom<br>
+                            It was longer than my day.<br>
+                            <br>
+                            긴 하루였습니다.<br>
+                            엄마를 기다리는 시간은<br>
+                            뉴욕 지하철보다 길었습니다.<br>
+                            긴 하루였습니다.<br>
+                            엄마를 기다리는 시간은<br>
+                            플랫폼에서 기다리는 사람들보다 길었습니다.<br>
+                            긴 하루였습니다.<br>
+                            엄마를 기다리는 시간은<br>
+                            나의 하루보다 더 길었습니다.<br>
                         </p>
                     </div>
                     <div class="artwork7Main">
                         <div class="artwork7IMG">
                             <img src="JIhoeKoo_07.jpg" alt="" >
+                            <button class="Sbutton" id="searchButton7" ><img src="search.png" 
+                                style="width: 18px; height: 16px;" alt=""></button>
                         </div>
 
                         <div class="artwork7Caption">
@@ -639,11 +797,72 @@
                 <div class="artistSection">
                     <div class="artistH3"><h3>The other aritst</h3></div>
                     <div class="otherArtist">
-                        <div class="yezi"><a href="yezi.html">문예지 (YeZi Moon)</a></div>
-                        <div class="heo"><a href="jeong.html">허 정 (Jeong Hur)</a></div>
+                        <div class="yezi"><a href="yezi.html"><img src="moonLogo.png" id="moonLogo" alt=""><span></span></a></div>
+                        <div class="heo"><a href="jeong.html"><img src="hurLogo.png" id="hurLogo" alt=""></a></div>
                     </div>
                 </div>
             </section>
         </div>
+        <script>
+        // searchButton 클릭 시 p 태그의 display 속성을 변경하는 함수
+        document.getElementById('searchButton3').addEventListener('click', function() {
+            var description = document.getElementById('description3');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+        
+        document.getElementById('searchButton4').addEventListener('click', function() {
+            var description = document.getElementById('description4');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+
+        document.getElementById('searchButton5').addEventListener('click', function() {
+            var description = document.getElementById('description5');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+
+        document.getElementById('searchButton7').addEventListener('click', function() {
+            var description = document.getElementById('description7');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+
+        </script>
+        <script>
+            // 이미지 요소 선택
+            const moonLogo = document.getElementById('moonLogo');
+            const hurLogo = document.getElementById('hurLogo');
+    
+            // 마우스 오버 이벤트
+            moonLogo.addEventListener('mouseover', function() {
+                moonLogo.src = 'moonLogo2.png'; // 마우스 오버 시 변경할 이미지
+            });
+    
+            moonLogo.addEventListener('mouseout', function() {
+                moonLogo.src = 'moonLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+            });
+    
+            hurLogo.addEventListener('mouseover', function() {
+                hurLogo.src = 'hurLogo2.png'; // 마우스 오버 시 변경할 이미지
+            });
+    
+            hurLogo.addEventListener('mouseout', function() {
+                hurLogo.src = 'hurLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+            });
+        </script>
 </body>
 </html>
