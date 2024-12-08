@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@
             height: 100px;
             position: fixed; /* 고정 위치 설정 */
             top: 58px; /* 페이지 상단에 위치 */
-            left: 120px; /* 페이지 왼쪽에 위치 */
+            left: 4%; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
         }
         
@@ -97,7 +97,9 @@
             color: #ff4f4f;
         }
 
-
+        .scrolled {
+            background: linear-gradient(to top, rgba(217, 217, 217, 0), rgba(217, 217, 217, 1)20%);
+        }
 
         .text {
             width: 100%;
@@ -105,11 +107,7 @@
             margin-top: 100px;
         }
 
-        .artist {
-            width: 100%;
-            height: 550px;
-            
-        }
+
 
         
         .title {
@@ -127,31 +125,64 @@
             align-items: center; /* 수직 중앙 정렬 */
             width: 100%; /* 전체 너비 사용 */
         }
-        .mainArticle2 {
-            margin-top: 8% ;
-        }
+
 
 
         .book {
-            
             height: 368px;
             width: 25%;
             display: flex; /* Flexbox 사용 */
-            justify-content: center; /* 수평 중앙 정렬 */
-            align-items: center; /* 수직 중앙 정렬 추가 */
+            flex-direction: column; /* 세로 방향으로 정렬 */
+            justify-content: flex-start; /* 위에서부터 정렬 */
+            align-items: flex-start; /* 왼쪽 정렬 */
             margin-right: 25px;
-            
+            overflow-x: hidden; /* 가로 스크롤바 숨기기 */
+            overflow-y: auto;   /* 세로 스크롤바는 자동으로 표시 */
         }
 
+        .book > div {
+            color: #173B66;
+        }
+        
         .write {
             background-color: #ececec;
             margin-left: 25px;
             height: 368px;
             width: 25%;
             display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로 방향으로 배치 */
             justify-content: center; /* 수평 중앙 정렬 */
-            align-items: center; /* 수직 중앙 정렬 추가 */
-            border: 1px solid #000; /* 두께 2px, 실선, 검은색 외곽선 */
+            align-items: stretch; /* 자식 요소들이 가로로 늘어나도록 설정 */
+            border: 1px solid #000; /* 두께 1px, 실선, 검은색 외곽선 */
+        }
+        
+        .book > div {
+            margin-bottom: 5%;
+        }
+        .name, .message {
+            margin-left: 5%;
+            margin-top: 5% ;
+            color: #ff4f4f;
+        }
+        
+        .submit {
+            margin-top: 40%;
+            margin-left: 80%;
+        }
+
+
+        .name input,
+        .message textarea {
+            background-color: transparent; /* 배경색을 투명으로 설정 */
+            border: none; /* 외곽선을 없앰 */
+            outline: none; /* 포커스 시 나타나는 외곽선 제거 */
+            width: 100%; /* 너비를 100%로 설정 (필요에 따라 조정 가능) */
+
+            box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+        }
+
+        .message textarea {
+            resize: none; /* 텍스트 영역 크기 조절 비활성화 (선택 사항) */
         }
 
 
@@ -172,7 +203,7 @@
                height: 100px;
             }
             .scrolled {
-                background-color: rgba(217, 217, 217, 1); /* 스크롤 시 투명도 100 */
+                background: linear-gradient(to top, rgba(217, 217, 217, 0), rgba(217, 217, 217, 1)20%);
             }
 
         }
@@ -180,39 +211,61 @@
         @media (max-width : 480px) {
             body {width: 100%; height: 2900px;}
             header { width: 100%; height: 247px; }
-            nav { width: 100%;; top: 20px; left: 20px;}
-            nav li { font-size: 15px; margin-right: 50px;}
+
+
             .title { font-size: 1.5em; width: 50%;}
             .text {width: 100%; }
-            .mainArticle, .mainArticle2 { height: 800px;  }
-            .article1 ,.article2, .article3, .article4 {
-                width: 70%;
-                flex-direction: column; /* 세로 방향으로 정렬 */
-            }
+
 
             .text {width: 100%; height: 2000px;} 
-            .text1, .text3, .text5, .text7 { width: 100%; font-weight: 800;}
-    
-            .text2, .text4, .text6, .text8{ width: 100%;}
-            .sectionTitle {height: 80px;}
-            .artist {width: 100%; height: 900px;}
-            .artistIMG {flex-direction: column; /* 세로 방향으로 정렬 */ }
-            .img1, .img2, .img3 { margin-top: 10%;}
+
             .navBox {
                 background-color: rgba(217, 217, 217, 0); /* 데스크탑에서 초기 투명도 0 */
                 height: 70px;
             }
+            .mainNav li {font-size: 14px; margin-right: 25px;}
+            .mainNav {top: 30px; left: 20px;}
+            .guestBook {margin-left: 60px;}
+
+            nav { width: 100%;; top: 20px; left: 20px;}
+            nav li { font-size: 15px; margin-right: 50px;}
+    
             .scrolled {
-                background-color: rgba(217, 217, 217, 1); /* 스크롤 시 투명도 100 */
+                background: linear-gradient(to top, rgba(217, 217, 217, 0), rgba(217, 217, 217, 1)20%);
             }
+
+            .guestbookDiv {
+                flex-direction: column; /* 세로 정렬로 변경 */
+            }
+
+            .book {
+                margin-top: 100px;
+                order: 2; /* 'book' 영역을 두 번째로 설정 */
+            }
+
+            .write {
+                order: 1; /* 'write' 영역을 첫 번째로 설정 */
+            }
+
+            .book, .write {
+                min-width: 80%;
+                height: 180px; /* 각 영역이 100% 너비를 차지하도록 설정 */
+            }
+
+            .submit {
+                margin-top: 0%;
+                margin-left: 80%;
+            }
+
         }
 
     </style>
 </head>
 <body>
     <div class="navBox">
-        <nav>
+        <nav class="mainNav">
             <ul>
+                <li><a href="index.html">전시개요</a></li>
                 <li class="insight">Insight</li>
                 <li class="el"><a href="el.html">얼</a></li>
                 <li class="outsight"><a href="outsight.html">Outsight</a></li>
@@ -226,16 +279,91 @@
                 <h1>Guest book</h1>
             </div>
             <div class="guestbookDiv">
-                <div class="book">
+                <div class="book" id="book">
                   
                 </div>
                 <div class="write">
-                    <input type="text" id="name" placeholder="이름" required>
-                    <textarea id="message" placeholder="메시지" required></textarea>
-                    <button id="submit">제출</button>
+                    <div class="name"><input type="text" id="name" placeholder="이름" required></div>
+                    <div class="message"><textarea id="message" placeholder="메시지" required></textarea></div>
+                    <div class="submit"><button id="submit">제출</button></div>
+
                 </div>
             </div>
         </section>
+        <script>
+            const navBox = document.querySelector('.navBox');
+    
+            // 화면 크기에 따라 스크롤 임계값을 설정하는 함수
+            function getScrollThreshold() {
+                return window.innerWidth <= 768 ? 100 : 100; // 모바일에서는 30px, 데스크탑에서는 50px
+            }
+    
+            // 스크롤 이벤트 리스너
+            window.addEventListener('scroll', function() {
+                const scrollThreshold = getScrollThreshold(); // 현재 화면 크기에 따른 임계값
+    
+                if (window.scrollY > scrollThreshold) {
+                    navBox.classList.add('scrolled'); // 클래스를 추가하여 배경색 변경
+                } else {
+                    navBox.classList.remove('scrolled'); // 클래스를 제거하여 초기 상태
+                }
+            });
+    
+            // 화면 크기 변경 시 임계값 업데이트
+            window.addEventListener('resize', function() {
+                const scrollThreshold = getScrollThreshold(); // 현재 화면 크기에 따른 임계값
+                if (window.scrollY > scrollThreshold) {
+                    navBox.classList.add('scrolled');
+                } else {
+                    navBox.classList.remove('scrolled');
+                }
+            });
+        </script>
+
+        <!--스크롤 애니메이션-->
+        <script>
+            let scrollAnimation; // 애니메이션을 제어할 변수
+    
+            function scrollToBottom(speed) {
+                const book = document.getElementById('book');
+                const targetScroll = book.scrollHeight;
+                const currentScroll = book.scrollTop;
+                const distance = targetScroll - currentScroll;
+                const step = distance / (speed / 10); // speed에 따라 스크롤 거리 계산
+    
+                function smoothScroll() {
+                    if (Math.abs(distance) > Math.abs(step)) {
+                        book.scrollTop += step; // 스크롤을 step만큼 이동
+                        scrollAnimation = requestAnimationFrame(smoothScroll); // 다음 프레임에서 다시 호출
+                    } else {
+                        book.scrollTop = targetScroll; // 최종 위치로 설정
+                    }
+                }
+    
+                smoothScroll();
+            }
+    
+            // 페이지가 로드될 때 스크롤을 아래로 내리기
+            window.onload = function() {
+                scrollToBottom(8000); // 8000ms (8초) 동안 스크롤
+            };
+    
+            // 방명록 내용이 변경될 때마다 스크롤을 아래로 내리기
+            const book = document.getElementById('book');
+            const observer = new MutationObserver(() => scrollToBottom(8000)); // 8000ms (8초) 동안 스크롤
+            observer.observe(book, { childList: true, subtree: true });
+    
+            // 스크롤바를 클릭했을 때 애니메이션 멈추기
+            book.addEventListener('mousedown', () => {
+                cancelAnimationFrame(scrollAnimation); // 애니메이션 중지
+            });
+    
+            // 스크롤바를 놓았을 때 애니메이션 재개 (선택 사항)
+            book.addEventListener('mouseup', () => {
+                scrollToBottom(8000); // 다시 스크롤 시작
+            });
+        </script>
+
         <script>
             document.getElementById("submit").addEventListener("click", async function() {
                 const name = document.getElementById("name").value;
