@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * { padding: 0; margin: 0;  overflow-x: hidden;}
+        * { padding: 0; margin: 0;  }
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
 :lang(en) {
     font-family: 'Noto Sans', sans-serif; /* 영어 텍스트에만 Noto Sans 적용 */
 }
+html, body {    overflow-x: hidden; /* 수평 스크롤 숨기기 */
+    overflow-y: auto;   /* 수직 스크롤 자동으로 표시 */}
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
@@ -244,8 +246,8 @@ button {
 
 /* 화면 너비 0~480px */
 @media (max-width: 480px) {
-    body {width: 100%; height: inherit;}
-    body::before { overflow-x: hidden; background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));}
+    body {width: 100%; height: 3000px; overflow-x: hidden;}
+    body::before {  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));}
     #wrap { width: 100%; }
     header { width: 100%; height: 70px;}
     aside { float: none; width: 100%; height: 600px; }
@@ -350,7 +352,7 @@ button {
                         The term ‘얼’ is a indigenous Korean word meaning the essence of one's spirit or resolve. By
                         presenting the ‘얼’ of those who are building their identities in a foreign land, this exhibition aims to
                         create a connection between the participants and the audience. The exhibition will be held online,
-                        providing viewers with the opportunity to reflect on and engage with their own '얼.'
+                        providing viewers with the opportunity to reflect on and engage with their own '얼'.
                      </p>
                 </div>
                 
