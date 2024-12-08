@@ -55,7 +55,7 @@
             height: 100px;
             position: fixed; /* 고정 위치 설정 */
             top: 58px; /* 페이지 상단에 위치 */
-            left: 120px; /* 페이지 왼쪽에 위치 */
+            left: 4%; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
         }
         
@@ -257,9 +257,10 @@
                 background-color: rgba(217, 217, 217, 0); /* 데스크탑에서 초기 투명도 0 */
                 height: 70px;
             }
-            .mainNav li {font-size: 16px; margin-right: 40px;}
+            .mainNav li {font-size: 14px; margin-right: 25px;}
             .mainNav {top: 30px; left: 20px;}
             .guestBook {margin-left: 60px;}
+            
             nav { width: 100%;; top: 20px; left: 20px;}
             nav li { font-size: 15px; margin-right: 50px;}
 
@@ -298,6 +299,7 @@
         <div class="navBox">
             <nav class="mainNav">
                 <ul>
+                    <li class="insight"><a href="index.html">전시개요</a></li>
                     <li class="insight" style="color: #ff4f4f;">Insight</li>
                     <li class="el"><a href="el.html">얼</a></li>
                     <li class="outsight"><a href="outsight.html">Outsight</a></li>
@@ -349,10 +351,10 @@
                 </div>
                 <div class="artistIMG">
                     <div class = "img1">
-                        <img src="artist1.png" alt="아티스트1">
+                        <img src="kooLogo.png" id="kooLogo" alt="아티스트1">
                     </div>
-                    <div class ="img2"><img src="artist1.png" alt="아티스트1"></div>
-                    <div class = "img3"><img src="artist1.png" alt="아티스트1"></div>
+                    <div class ="img2"><img src="moonLogo.png" id="moonLogo" alt="아티스트1"></div>
+                    <div class = "img3"><img src="hurLogo.png" id="hurLogo" alt="아티스트1"></div>
                 </div>
             </section>
         </div>
@@ -384,6 +386,37 @@
                 } else {
                     navBox.classList.remove('scrolled');
                 }
+            });
+        </script>
+        <script>
+            // 이미지 요소 선택
+            const kooLogo = document.getElementById('kooLogo');
+            const hurLogo = document.getElementById('hurLogo');
+            const moonLogo = document.getElementById('moonLogo');
+    
+            // 마우스 오버 이벤트
+            moonLogo.addEventListener('mouseover', function() {
+                moonLogo.src = 'moonLogo2.png'; // 마우스 오버 시 변경할 이미지
+            });
+    
+            moonLogo.addEventListener('mouseout', function() {
+                moonLogo.src = 'moonLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+            });
+    
+            hurLogo.addEventListener('mouseover', function() {
+                hurLogo.src = 'hurLogo2.png'; // 마우스 오버 시 변경할 이미지
+            });
+    
+            hurLogo.addEventListener('mouseout', function() {
+                hurLogo.src = 'hurLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+            });
+
+            kooLogo.addEventListener('mouseover', function(){
+                kooLogo.src = 'kooLogo2.png';
+            });
+
+            kooLogo.addEventListener('mouseout', function() {
+                kooLogo.src = 'kooLogo.png';
             });
         </script>
     
