@@ -29,7 +29,7 @@
             height: 100px;
             position: fixed; /* 고정 위치 설정 */
             top: 58px; /* 페이지 상단에 위치 */
-            left: 120px; /* 페이지 왼쪽에 위치 */
+            left: 4%; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
         }
         
@@ -38,7 +38,7 @@
             height: 100px;
             position: fixed;
             top: 103px; /* 페이지 상단에 위치 */
-            left: 155px; /* 페이지 왼쪽에 위치 */
+            left: 240px; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
             display: none; /* 기본적으로 숨김 */
             
@@ -47,6 +47,7 @@
         nav.mainNav li:hover .subNav,
         nav.mainNav li .subNav:hover {
             display: block; /* 마우스 오버 시 표시 */
+            
         }
         nav ul {
             list-style: none; /* 기본 목록 스타일 제거 */
@@ -59,6 +60,7 @@
             margin-right: 80px; /* 항목 간 간격 설정 */
             cursor: pointer;
             font-size: 18px;
+
         }
         
         nav a {
@@ -268,7 +270,6 @@
 
         .artist {
             width: 100%;
-            height: 550px;
             
         }
 
@@ -282,12 +283,35 @@
             color: inherit; /* 부모 요소의 색상 상속 */
         }
         
-        /* 마우스 오버 스타일 */
-        .otherArtist div:hover {
-            color: #86D9CA; /* 색상 변경 */
-            font-family: 'Noto Sans KR', sans-serif; /* Noto Sans로 변경 */
-            font-weight: 800; /* Extra Bold */
+        .otherArtist img {
+            width: 60%;
+            z-index: 0;
+            position: relative;
         }
+
+
+        #img2 {
+            position: relative;
+            z-index: -1;
+        }
+
+        .Sbutton {
+            position: absolute;
+            right: 10%;
+            margin-top: 38%;
+            z-index: 1;
+            /* 기본 배경 및 테두리 없애기 */
+            background: none; /* 배경 없애기 */
+            border: none; /* 테두리 없애기 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+        }
+
+        #description5, #description2, #description7 {
+            display: none;
+        }
+
+
+
 
 
         @media (max-width : 1220px) {
@@ -303,16 +327,18 @@
         }
 
         @media (max-width : 480px) {
-            body {width: 100%; height: 4000px;  overflow-x: hidden; /* 가로 스크롤바 숨기기 */}
+            body {width: 100%;  overflow-x: hidden; /* 가로 스크롤바 숨기기 */}
             .content {width: 100%; }
             .navBox {width: 100%; height: 50px; }
-            .mainNav li {font-size: 16px; margin-right: 40px;}
+            .mainNav li {font-size: 14px; margin-right: 25px;}
             .mainNav {top: 30px; left: 20px;}
             .guestBook {margin-left: 60px;}
             .subNav {
                 top: 60px;
-                left: 22px;
+                left: 80px;
             }
+
+            .artistSection {height: 350px;}
 
             .subNav > ul > li {
                 font-size: 14px;
@@ -320,18 +346,31 @@
             }
 
             .artwork1, .artwork2, .artwork3, .artwork4, .artwork5, .artwork6,.artwork7, .artwork8 {
-                flex-direction: column; /* 모바일에서 세로 방향으로 줄바꿈 */
-
+                display: flex; /* Flexbox 사용 */
+                flex-direction: column; /* 세로 방향으로 정렬 */
+                align-items: center; /* 가로 중앙 정렬 */
                 margin-bottom: 40px; /* 각 아트워크 섹션 간의 간격 */
-                height: 1100px;
-                width: 100%;
-                background-color: rebeccapurple;
+                width: 100%; /* 부모 요소의 전체 너비 사용 */
+                height: auto; /* 높이를 자동으로 조정 */
             }
 
-            .artwork5 {
-                height: 1700px;
+
+            /* 각 이미지 섹션을 중앙 정렬 */
+            .artwork1IMG, .artwork2IMG, .artwork3IMG, .artwork4IMG, .artwork5IMG, .artwork6IMG, .artwork7IMG, .artwork8IMG {
+                display: flex; /* Flexbox 사용 */
+                justify-content: center; /* 가로 중앙 정렬 */
+                width: 100%; /* 부모 요소에 맞춤 */
             }
 
+            .artwork5, .artwork4 {
+                height: 1500px;
+            }
+            .artwork1IMG > img, .artwork2IMG > img, .artwork3IMG > img,
+            .artwork4IMG > img, .artwork5IMG > img, .artwork6IMG > img,
+            .artwork7IMG > img, .artwork8IMG > img {
+                max-width: 100%; /* 이미지의 최대 너비를 부모 요소에 맞춤 */
+                height: auto; /* 비율 유지 */
+            }
             .portrait, .artWork {
                 width: 100%; /* 전체 너비 사용 */
                 margin-right: 0; /* 가로 간격 제거 */
@@ -345,7 +384,9 @@
             
 
             .artwork1IMG, .artwork2IMG, .artwork3IMG, .artwork4IMG, .artwork5IMG, .artwork7IMG, .artwork8IMG {
-                display: block; /* 블록으로 변경하여 세로 방향으로 나열 */
+                display: flex; /* Flexbox 사용 */
+                justify-content: center; /* 가로 중앙 정렬 */
+                width: 100%; /* 부모 요소에 맞춤 */
             }
 
             .artwork6IMG > img, .artwork8IMG > img {width: 460px;}
@@ -357,6 +398,13 @@
                 margin-top: 100px;
                 margin-bottom: 200px;
 
+            }
+
+            .artwork1IMG > img, .artwork2IMG > img, .artwork3IMG > img,
+            .artwork4IMG > img, .artwork5IMG > img, .artwork6IMG > img,
+            .artwork7IMG > img, .artwork8IMG > img {
+                max-width: 100%; /* 이미지의 최대 너비를 부모 요소에 맞춤 */
+                height: auto; /* 비율 유지 */
             }
             
             .artwork2Note > p, .artwork3Note > p , .artwork4Note > p,
@@ -384,8 +432,8 @@
             .artworkText > p {
                 width: 70%;
                 font-size: 14px;
-                background-color: red;
                 margin-top: 70%;
+                margin-bottom: 700px;
             }
             .interviewVideo > iframe { width: 400px; height: 250px;}
             .yezi, .heo {
@@ -393,9 +441,34 @@
                 
                 text-align: center;
                 margin-left: 20px;
+                
+            }
+            .link {
+                margin-left: 17%;
             }
 
-            
+            #description2 {
+                margin-bottom: 200px;   
+            }
+
+            .Sbutton {
+                margin-top: 10%;
+            }
+
+            .artwork2Note, .artwork3Note, .artwork4Note,
+            .artwork5Note,  .artwork6Note, .artwork7Note
+            ,.artwork8Note {
+                order: 2; /* 아트워크 노트를 두 번째로 설정 */
+            }
+        
+            .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main, .artwork6Main
+            .artwork7Main, .artwork8Main {
+                order: 1; /* 작품 이미지를 첫 번째로 설정 */
+            }
+
+            .artwork7 {
+                margin-bottom: 60%;
+            }
 
         }
     </style>
@@ -404,6 +477,7 @@
     <div class="navBox">
         <nav class="mainNav">
             <ul>
+                <li><a href="index.html">전시개요</a></li>
                 <li><a href="insight.html">Insight</a></li>
                 <li style="height: 50px">
                     <a href="el.html" style="color: #ff4f4f; font-weight: bolder;">얼</a>
@@ -444,9 +518,9 @@
                     </div>
                     <div class="artWork"> <!--안보이는구역-->
                         <div class="artwork1IMG">
-                            <img src="jeong_01.jpg" style = "display : none;"alt="" style="width: 450px;">
+                            <img src="jeong_04.jpg" alt="" style="width: 450px;">
                         </div>
-                        <div class="artwork1Caption" style = "display : none;">
+                        <div class="artwork1Caption" >
                             <div class="artwork1_title">A floral breeze as you passed</div>
                             <div style="color: #909090; font-size :14px; line-height : 19px;">Digital print with colored marker, color pencil,<br> photo
                                 collages on printmaking <br>
@@ -457,12 +531,11 @@
                 <!-- 작품2 구역 -->
                 <div class="artwork2">
                     <div class="artwork2Note">
-                        <p>
-                        </p>
+
                     </div>
                     <div class="artwork2Main">
                         <div class="artwork2IMG">
-                            <img src="jeong_01.jpg" alt="" style="width: 450px;">
+                            <img id="img2" src="jeong_02.jpg" alt="" style="width: 450px;">
                         </div>
                         <div class="artwork2Caption"> 
                             <div class="artwork2_title">A floral breeze as you passed</div>
@@ -481,7 +554,7 @@
                     </div>
                     <div class="artwork3Main">
                         <div class="artwork3IMG">
-                            <img src="jeong_02.jpg" alt="" style="width: 450px;">
+                            <img src="jeong_03.jpg" alt="" style="width: 450px;">
                         </div>
 
                         <div class="artwork3Caption">
@@ -497,12 +570,16 @@
                 </div>
                 <div class="artwork4">
                     <div class="artwork4Note">
-                        <p>
-                        </p>
+                        <div class="" id="description2">
+                            <img src="floralHur.gif" style="width: 450px;" alt="" >
+                        </div>
                     </div>
                     <div class="artwork4Main">
                         <div class="artwork4IMG">
-                            <img src="jeong_03.jpg" alt="" style="width: 450px;">
+                            <img src="jeong_01.jpg" alt="" style="width: 450px;">
+                            <button class="Sbutton" id="searchButton2" >
+                                <img src="search.png" style="width: 18px; height: 16px;" alt="">
+                            </button>
                         </div>
 
                         <div class="artwork4Caption">
@@ -515,35 +592,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="artwork4">
-                    <div class="artwork4Note">
-                        <p>
-                        </p>
-                    </div>
-                    <div class="artwork4Main">
-                        <div class="artwork4IMG">
-                            <img src="jeong_04.jpg" alt="" style="width: 450px;">
-                        </div>
 
-                        <div class="artwork4Caption">
-                            <div class="artwork4_title">Peeping Tom</div>
-                            <div style="color: #909090; font-size :14px; line-height : 19px;">
-                                2024 <br>
-                                Mixed media (Acrylic, color pencil, plaster, <br>
-                                and Han-ji) on paper pulp <br>
-                                37 x 37 x 2 inches</div>
-                        </div>
-                    </div>
-                </div>
                 <div class="artwork5">
                     <div class="artwork5Note">
-                        <div class="artwork5IMG">
-                            <img src="jeong_05.jpg" style="width: 450px;" alt="" >
+                        <div class="artwork5IMG" id="description5">
+                            <img src="Watchers_GIF.gif" style="width: 450px;" alt="" >
                         </div>
                     </div>
                     <div class="artwork5Main">
                         <div class="artwork5IMG">
                             <img src="jeong_06.jpg" alt="" style="width: 450px;">
+                            <button class="Sbutton" id="searchButton5" >
+                                <img src="search.png" style="width: 18px; height: 16px;" alt="">
+                            </button>
                         </div>
 
                         <div class="artwork5Caption">
@@ -577,12 +638,17 @@
                 </div>
                 <div class="artwork7">
                     <div class="artwork7Note">
-                        <p>
-                        </p>
+                        <div id="description7">
+                            <img src="donut.gif" style="width: 450px;"  alt="">
+                        </div>
+                        
                     </div>
                     <div class="artwork7Main">
                         <div class="artwork7IMG">
                             <img src="jeong_08.jpg" style="width: 450px;" alt="">
+                            <button class="Sbutton" id="searchButton7" >
+                                <img src="search.png" style="width: 18px; height: 16px;" alt="">
+                            </button>
                         </div>
 
                         <div class="artwork7Caption">
@@ -626,7 +692,7 @@
                     <div class="interviewH3"><h3>Artist Interview</h3></div>
                     <div class="interviewVideo">
                         <iframe width="738" height="415"
-                        src="https://www.youtube.com/embed/영상_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                        src="hurVideo.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
                         gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                     </div>
@@ -647,11 +713,63 @@
                 <div class="artistSection">
                     <div class="artistH3"><h3>The other aritst</h3></div>
                     <div class="otherArtist">
-                        <div class="yezi"><a href="el.html">구지희 (Jihoe Koo)</a></div>
-                        <div class="heo"><a href="yezi.html">문예지 (Yeji Moon)</a></div>
+                        <div class="yezi"><a href="el.html"><img src="kooLogo.png" id="kooLogo" alt=""><span></span></a></div>
+                        <div class="heo"><a href="yezi.html"><img src="moonLogo.png" id="moonLogo" alt=""></a></div>
                     </div>
-                </div>
             </section>
         </div>
+        <script>
+            // searchButton 클릭 시 p 태그의 display 속성을 변경하는 함수
+            document.getElementById('searchButton2').addEventListener('click', function() {
+                var description = document.getElementById('description2');
+                if (description.style.display === 'none' || description.style.display === '') {
+                    description.style.display = 'block'; // p 태그를 보이게 함
+                } else {
+                    description.style.display = 'none'; // p 태그를 숨김
+                }
+            });
+            
+            document.getElementById('searchButton5').addEventListener('click', function() {
+                var description = document.getElementById('description5');
+                if (description.style.display === 'none' || description.style.display === '') {
+                    description.style.display = 'block'; // p 태그를 보이게 함
+                } else {
+                    description.style.display = 'none'; // p 태그를 숨김
+                }
+            });
+
+            document.getElementById('searchButton7').addEventListener('click', function() {
+                var description = document.getElementById('description7');
+                if (description.style.display === 'none' || description.style.display === '') {
+                    description.style.display = 'block'; // p 태그를 보이게 함
+                } else {
+                    description.style.display = 'none'; // p 태그를 숨김
+                }
+            });
+
+            </script>
+
+            <script>
+                // 이미지 요소 선택
+                const moonLogo = document.getElementById('kooLogo');
+                const hurLogo = document.getElementById('moonLogo');
+        
+                // 마우스 오버 이벤트
+                moonLogo.addEventListener('mouseover', function() {
+                    moonLogo.src = 'kooLogo2.png'; // 마우스 오버 시 변경할 이미지
+                });
+        
+                moonLogo.addEventListener('mouseout', function() {
+                    moonLogo.src = 'kooLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+                });
+        
+                hurLogo.addEventListener('mouseover', function() {
+                    hurLogo.src = 'moonLogo2.png'; // 마우스 오버 시 변경할 이미지
+                });
+        
+                hurLogo.addEventListener('mouseout', function() {
+                    hurLogo.src = 'moonLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+                });
+            </script>
 </body>
 </html>
