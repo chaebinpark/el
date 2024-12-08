@@ -5,363 +5,949 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * { padding: 0; margin: 0;  }
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
-:lang(en) {
-    font-family: 'Noto Sans', sans-serif; /* 영어 텍스트에만 Noto Sans 적용 */
-}
-html, body {    overflow-x: hidden; /* 수평 스크롤 숨기기 */
-    overflow-y: auto;   /* 수직 스크롤 자동으로 표시 */}
-
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    margin: 0; /* 기본 마진 제거 */
-    height: 2400px; /* 전체 화면 높이 설정 */
-    overflow-x: hidden; /* 가로 스크롤을 숨김 */
-    background: 
-    url('mainGravity.png') no-repeat center center,
-    url('layoutBackImg.png') no-repeat center center;
-
-         /* 두 번째 배경 이미지 */
-    background-size: 1520px 1440px,cover; /* 두 배경 이미지 크기 조정 */
-    background-position: top center;
-    position: relative; /* 자식 요소의 절대 위치를 위해 상대 위치 설정 */
-}
-
- 
-body::before {
-    content: '';
-    position: absolute; /* 절대 위치 설정 */
-    top: 0; /* 상단에 위치 */
-    left: 0; /* 좌측에 위치 */
-    right: 0; /* 우측에 위치 */
-    bottom: 0; /* 하단에 위치 */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* 그라데이션 설정 */
-    z-index: 1; /* 그라데이션을 다른 요소 위에 표시 */
-}
-
-#wrap { width: 1280px; margin: 0 auto; }
-
-.bgText {
-    z-index: 1;
-    position: absolute;
-    margin: 18% 0 0 0;
-    transform: scaleY(-1);
-    display: inline-block; /* transform이 적용되도록 inline-block으로 설정 */
-    color: white;
-    text-align: left;
-
-}
-
-header { 
-    width: 100%;
-    height: 100px;
-    
-    display: flex; /* Flexbox 사용 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
-    
-     }
-
-#mainSection { float: left; width: 70%; height: 1100px; }
-
-aside { float: left; width: 30%; height: 1100px; } 
-
-.asideText  {
-    margin: 70% 0 0 0;
-    text-align: right;
-    line-height: 100%;
-}
-
-article {
-    clear: both;
-    width: 100%;
-    height: 895px;
-    /*background: green;*/
-    display: flex; /* Flexbox 사용 */
-    flex-direction: column; /* 자식 요소를 수직으로 쌓기 */
-    align-items: center; /* 자식 요소를 수평 중앙 정렬 */
-    
-    position: relative; /* 자식 요소의 절대 위치를 위해 상대 위치 설정 */
-    z-index: 2; /* 텍스트가 그라데이션 위에 오도록 z-index 설정 */
-    float: left; 
-}
-
-header > div > div { display: inline-block; }
-
-.nameBox    {
-    width: 80%;
-    height: 40px;
-    display: flex; /* Flexbox 사용 */
-    justify-content: center; /* 수평 중앙 정렬 */
-}
-
-.dateBox {
-    
-    width: 15%;
-    margin: 0 0 0 70%;
-    z-index: 2;
-    position: absolute;
-}
-
-.date {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.name1, .name2, .name3 {
-    width: 23%;
-    text-align: center;
-    font-size: 1rem; /* 20px */
-    font-weight: 400;
-    font-stretch: ultra-expanded;
-    
-}
-
-h1 {
-    font-family: 'Noto Sans KR';
-    font-weight: bold;
-    font-size: 10rem; /* 128px */
-    margin: 12% 0px 0 25%;
-    font-stretch: ultra-expanded;
-    width: 100%;
-    position: relative; /* h1의 위치를 상대적으로 설정 */
-    z-index: 2;
-    
-}
-h2 {
-    font-family: 'Noto Sans ENG';
-    font-weight: 400;
-    font-size: 3.33rem; /* 128px */
-    margin: 0 0 0 28%;
-    width: 100%;
-     
-    
-
-}
-
-.texttTitle {
-    width: 55%;
-    height: 100px;
-    color: white;
-    display: flex; /* Flexbox 사용 */
-    justify-content: left; /* 수평 중앙 정렬 */
-    font-size: larger;
-    
-}
-
-.textBox {
-    width: 70%;
-    height: 680px; 
-    
-    }
-
-.textBox1, .textBox2, .textBox3, .textBox4 {
-    display: flex; /* Flexbox 사용 */
-    justify-content: center; /* 수평 중앙 정렬 */
-
-}
-.textKR, .textKR2, .textENG, .textENG2 {
-    text-indent: 7%;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: normal; /* 'regular'는 CSS에서 사용되지 않음 */
-    font-size: 0.875rem; /* 14px */
-    color: white;
-    line-height: 200%;
-    display: flex; /* Flexbox 사용 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    width: 80%;
-    
-    
-}
-.BUTTON {
-    justify-content: center;
-    display: flex; /* Flexbox 사용 */
-    height: 20%;
-    margin: 10%;
-}
-
-button {
-    background: transparent; /* 배경을 투명하게 설정 */
-    border: none; /* 테두리 제거 (필요 시) */
-    color: white;
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-}
-
-
-.mainSection > h1, .mainSection > h2 {
-    opacity: 0;
-    animation: fadeIn 1s 3;
-    animation-delay : 0s;
-}
-
-.blink {
-    animation: blink-effect 1s steps(1, end) 1.3; /* 1초 동안 3번 깜빡임 */
-    }
-    
-    @keyframes blink-effect {
-    0%, 20% {
-    opacity: 1; /* 처음과 끝에서 보임 */
-    }
-    10%, 30% {
-    opacity: 0.2; 
-    }
-
-}
-
-#floatingArrow {
-
-    z-index: 1;
-    position: fixed;
-    bottom: 60px; /* 화면 하단에서 20px 위 */
-    right: 80px; /* 화면 오른쪽에서 20px 왼쪽 */
-
-}
-
-
-
-/* 화면 너비 0~1200px */
-@media (max-width: 1220px) {
-    #wrap { width: 100%; }
-    body { 
-        width: 100%;
+        :lang(en) {
+            font-family: 'Noto Sans', sans-serif; /* 영어 텍스트에만 Noto Sans 적용 */
         }
-}
+        
+        body {
+            margin: 0; /* 기본 마진 제거 */
+            background: 
+            url('kooGravity.png') no-repeat center top;
+            background-size : 1530px, cover;
+            
+        }
 
-/* 화면 너비 0~768px */
-@media (max-width: 768px) {
-    #wrap { width: 100%; }
-    body {
+        .contents {
+            margin-top: 173px;
+            
+        }
+
+        /*so*/
+
+        .mainNav {
             width: 100%;
-            overflow-x: hidden;
+            height: 100px;
+            position: fixed; /* 고정 위치 설정 */
+            top: 58px; /* 페이지 상단에 위치 */
+            left: 4%; /* 페이지 왼쪽에 위치 */
+            z-index: 1; /* header보다 위에 배치 */
         }
-    body::before { width: 100%;}
-    aside {float: none; width:800px ; height: 400px;}
-    .asideText {margin-top: 50%;}
-    .dateBox { width: 100%; margin-top: 30px; margin-left: 120%;}
-    .name1, .name2, .name3, .date { font-size: 14px;}
-    .nameBox {margin-right: 20%;}
-}
+        
+        .subNav {
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            top: 103px; /* 페이지 상단에 위치 */
+            left: 240px; /* 페이지 왼쪽에 위치 */
+            z-index: 1; /* header보다 위에 배치 */
+            display: none; /* 기본적으로 숨김 */
+            
+        }
 
-/* 화면 너비 0~480px */
-@media (max-width: 480px) {
-    body {width: 100%; height: 3000px; overflow-x: hidden;}
-    body::before {  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));}
-    #wrap { width: 100%; }
-    header { width: 100%; height: 70px;}
-    aside { float: none; width: 100%; height: 600px; }
-    #mainSection { float: none; width: 100%; height: 300px;}
-    header >  .nameBox { width: 500px; }
+        nav.mainNav li:hover .subNav,
+        nav.mainNav li .subNav:hover {
+            display: block; /* 마우스 오버 시 표시 */
+        }
+        nav ul {
+            list-style: none; /* 기본 목록 스타일 제거 */
+            padding: 0; /* 패딩 제거 */
+            margin: 0; /* 마진 제거 */
+            display: flex; /* 가로 정렬 */
+        }
+        
+        nav li {
+            margin-right: 80px; /* 항목 간 간격 설정 */
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        nav a {
+            text-decoration: none; /* 기본 밑줄 제거 */
+            color: #173B66;
+            font-weight: normal;
+        }
 
-    /*폰트 사이즈 등 조정*/
-    .dateBox { width: 50%; margin-top: 30px;  margin-left: 80%;}
-    .name1, .name2, .name3, .date { font-size: 12px;}
-    h1 {font-size: 120px; width: 90%; margin: 15% 0px 0 8%; }
-    h2 {font-size: 40px; width: 80%; margin: 0 0 0 14% ;}
-    .asideText {font-size: 14px; margin: 0 0 0 0;}
-    .bgText {font-size: 12px; }
-    .nameBox {  margin-right: 7%;}
-    .name1, .name2, .name3 { margin-left: 10%;}
-    .textBox { height: 1800px;}
-    article { height: auto;}
-    #floatingArrow { right: 50px;}
-}
+        .navBox {
+            background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)60%); 
+            width: 100%;
+            height: 150px;
+            position: fixed; /* 고정 위치 설정 */
+            top: 0; /* 페이지 상단에 위치 */
+        }
 
+        .subNav > ul > li {
+            font-size: 15px;
+            margin-right: 45px;
+            color: #656565;
+        }
+
+        .guestBook {
+            margin-left: 45%;
+        }
+
+        /* 반복 css, artwork 레이아웃 시작 */
+
+        .portraitIMG { width: 30%;}
+        img {width: 450px;}
+        .artwork1, .artwork2, .artwork3, .artwork4,
+        .artwork5, .artwork6, .artwork7, .artwork8 {
+            width: 100%;
+            height: 900px;
+            display: flex; /* 가로 정렬 */
+            
+        }
+
+
+
+        .artwork2Note, .artwork3Note, .artwork4Note,
+        .artwork5Note, .artwork6Note, .artwork7Note
+        ,.artwork8Note {
+            width: 50%;
+            height: 70%;
+            display: flex; /* Flexbox 사용 */
+            align-items: center; /* 수직 중앙 정렬 */
+            flex-direction: column;
+            overflow: auto; /* 내용이 넘칠 경우 스크롤 생성 */
+            
+        }
+
+        
+        
+
+        .artwork2Note > p, .artwork3Note > p , .artwork4Note > p,
+        .artwork5Note > p, .artwork7Note > p, .artwork6Note > p,
+        .artwork8Note > p {
+            width: 65%;
+            line-height: 30px;
+        }
+
+        #description3, #description4, #description5, #description6, #description7{
+            display: none;
+        }
+
+/*        .artwork5Note > p {
+            z-index: 1;
+            position: relative; /* z-index를 사용하기 위해 position을 설정 */
+       /* } 
+
+        .bg {
+                width: 50%; /* 너비를 100%로 설정 */
+         /*       height: 200%;
+                background-color: white; /* 배경색을 하얀색으로 설정 */
+         /*       z-index: 0; /* 다른 요소들 아래에 위치 */
+        /*         position: absolute; /* 절대 위치 지정 */
+       /* } */
+
+
+        .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main,
+        .artwork7Main, .artwork8Main{     
+            width: 50%;
+            display: flex; /* Flexbox 사용 */
+            align-items: center; /* 수직 중앙 정렬 */
+            flex-direction: column;
+        }
+
+        .artwork1Caption, .artwork2Caption, .artwork3Caption, .artwork4Caption
+        ,.artwork5Caption, .artwork6Caption, .artwork7Caption, .artwork8Caption {
+            width: 65%;
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 수직 배치 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            text-align: right;
+            font-size: 16px;
+            line-height: 22px;
+            margin-top: 10px;
+            margin-right: 5%;
+        }
+
+        .artwork6Caption {
+            margin-right: 0;
+        }
+        
+        /* 반복 css, artwork 레이아웃 끝 */
+        
+        /* artwork6 css */
+        .artwork6Main{
+            width: 85%;
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로 방향으로 변경 */
+            align-items: flex-end; /* 오른쪽 정렬 */
+            padding-right: 5%;
+        }
+                /* artwork6 css */
+                .artwork6Main, .artwork8Main {
+                    width: 90%;
+                    display: flex; /* Flexbox 사용 */
+                    flex-direction: column; /* 세로 방향으로 변경 */
+                    align-items: flex-end; /* 오른쪽 정렬 */
+                    margin-right: 5%;
+                }
+
+
+        .artwork6IMG > img {
+            width: 740px;
+        }
+
+        .artwork8IMG > img {
+            width: 928px;
+        }
+        /* artwork6 css 끝 */
+
+        .portrait, .artWork {
+            width: 50%;
+            height: 700px;
+            display: flex; /* Flexbox 사용 */
+            align-items: center; /* 수직 중앙 정렬 */
+            flex-direction: column;
+        }
+
+
+        .portrait > .portraitIMG, .artWork > .artwork1IMG{
+            justify-content: center; /* 수평 중앙 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+            display: flex;
+        }
+
+        .portraitText{
+            margin-top: 10px;
+            width: 44%; /* 텍스트 영역의 너비 */
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 수직 배치 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            font-size: 16px;
+            line-height: 30px;
+        
+        }
+
+
+
+        /* artwork 타이틀*/
+        .artwork1_title, .artwork2_title, .artwork3_title,
+        .artwork4_title,.artwork5_title,.artwork6_title,
+        .artwork7_title, .artwork8_title {
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+
+        /*작품 밑 텍스트*/
+        .artworkText {
+            width: 100%;
+            height: 900px;
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 수직 배치 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            align-items: center; /* 가로 중앙 정렬 추가 */
+        }
+
+        .artworkText > p {
+            width: 52%;
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            line-height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        /*작품 밑 텍스트 끝*/
+        
+        /*Artist Interview*/
+        .interview {
+             display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 수직 배치 */
+            justify-content: center; /* 수직 중앙 정렬 */
+        }
+
+        .interviewVideo {
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 수직 배치 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            align-items: center; /* 가로 중앙 정렬 추가 */
+        }
+
+        .interviewH3, .artistH3{
+            width: 58%;
+            color: #ff4f4f;
+            display: flex; /* Flexbox 사용 */
+            justify-content: center; /* 수평 중앙 정렬 */
+            height: 110px;
+            font-weight: bold; /* 굵게 설정 (선택 사항) */
+            font-size: 18px;
+        }
+
+        .link {
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로 방향으로 정렬 */
+            align-items: flex-end; /* 오른쪽 정렬 */
+            margin-top: 20px; /* 위쪽 여백 추가 */
+            width: 74%;
+        }
+        
+        .insta, .mail {
+            display: flex; /* Flexbox 사용 */
+            align-items: center; /* 아이콘과 텍스트 수직 정렬 */
+            margin-bottom: 10px; /* 아래쪽 여백 추가 */
+        
+        }
+        
+        .insta img, .mail img {
+            width: 20px;
+            margin-right: 8px; /* 아이콘과 텍스트 사이의 간격 조정 */
+        }
+
+        .artistSection {
+            width: 100%;
+            height: 500px;
+        }
+
+        .otherArtist{
+            width: 100%;
+            display: flex; /* Flexbox 사용 */
+            justify-content: center; /* 수직 중앙 정렬 */
+
+        }
+
+        .yezi, .heo {
+            width: 20%;
+            margin-left: 100px;
+            text-align: center;
+        }
+
+        .text {
+            width: 100%;
+            height: 1400px;
+            margin-top: 100px;
+        }
+
+        .artist {
+            width: 100%;
+            height: 550px;
+            
+        }
+
+
+        .otherArtist div {
+            cursor: pointer; /* 마우스 오버 시 포인터 변경 */
+        }
+
+        .otherArtist img {
+            width: 60%;
+            z-index: 0;
+            position: relative;
+        }
+        
+        .otherArtist > div a {
+            text-decoration: none; /* 링크 밑줄 제거 */
+            color: inherit; /* 부모 요소의 색상 상속 */
+        }
+    
+
+
+        .Sbutton {
+            background: none;
+            /* 기본 배경 및 테두리 없애기 */
+            border: none; /* 테두리 없애기 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+            text-align: right;
+        }
+
+        @media (max-width : 1220px) {
+            body { width: 100%;}
+            .content {width: 100%;}
+            .navBox {width: 100%;}
+        }
+
+        @media (max-width : 768px) {
+            body {width: 100%;}
+            header { width: 100%; height: 423px; }
+
+            .navBox {
+                background-color: rgba(217, 217, 217, 0); /* 데스크탑에서 초기 투명도 0 */
+                height: 70px;
+            }
+            .mainNav li {font-size: 16px; margin-right: 40px;}
+            .mainNav {top: 30px; left: 25px;}
+            .guestBook {margin-left: 280px;}
+
+            img { width: 90%; }
+            .portraitIMG { width: 70%;}
+            .portraitText { width: 60%;}
+            .portraitText > p { font-size: 14px;}
+            .artwork6Main, .artwork8Main { width: 100%;}
+            .artwork6Caption, .artwork8Caption {margin-right: 3%;}
+            .link {
+                margin-left : 17%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body { width: 100%; height: 4000px; overflow-x: hidden; /* 가로 스크롤바 숨기기 */ }
+            .content { width: 100%; }
+            .navBox { width: 100%; height: 50px; }
+            .mainNav li { font-size: 14px; margin-right: 25px; }
+            .mainNav { top: 30px; left: 20px; }
+            .guestBook { margin-left: 60px; }
+            .subNav { top: 60px; left: 80px; }
+        
+            .subNav > ul > li {
+                font-size: 14px;
+                margin-right: 35px;
+            }
+        
+            /* 모든 artwork 섹션을 Flexbox로 설정 */
+            .artwork1, .artwork2, .artwork3, .artwork4, .artwork5, .artwork6, .artwork7, .artwork8 {
+                display: flex; /* Flexbox 사용 */
+                flex-direction: column; /* 세로 방향으로 정렬 */
+                align-items: center; /* 가로 중앙 정렬 */
+                margin-bottom: 40px; /* 각 아트워크 섹션 간의 간격 */
+                width: 100%; /* 부모 요소의 전체 너비 사용 */
+                height: auto; /* 높이를 자동으로 조정 */
+            }
+        
+            /* 각 이미지 섹션을 중앙 정렬 */
+            .artwork1IMG, .artwork2IMG, .artwork3IMG, .artwork4IMG, .artwork5IMG, .artwork6IMG, .artwork7IMG, .artwork8IMG {
+                display: flex; /* Flexbox 사용 */
+                justify-content: center; /* 가로 중앙 정렬 */
+                width: 100%; /* 부모 요소에 맞춤 */
+            }
+        
+            .artwork1IMG > img, .artwork2IMG > img, .artwork3IMG > img,
+            .artwork4IMG > img, .artwork5IMG > img,
+            .artwork7IMG > img {
+                max-width: 100%; /* 이미지의 최대 너비를 부모 요소에 맞춤 */
+                height: auto; /* 비율 유지 */
+            }
+
+            .artwork6IMG > img, .artwork8IMG > img { width: 110%;}
+            .artwork8IMG > img { width: 105%;}
+        
+            /* 기타 스타일 유지 */
+            .portrait, .artWork {
+                width: 100%; /* 전체 너비 사용 */
+                margin-right: 0; /* 가로 간격 제거 */
+                margin-bottom: 200px; /* 아래쪽 간격 추가 */
+                height: 800px;
+            }
+        
+            .artwork2 {
+                margin-top: 800px;
+            }
+            .artwork6 {
+                margin-bottom: 800px;
+                width: 100%;
+                
+            }
+
+            .artwork2Note, .artwork3Note, .artwork4Note,
+            .artwork5Note, .artwork7Note, .artwork8Note {
+                width: 100%;
+                margin-top: 100px;
+                margin-bottom: 200px;
+            }
+        
+            .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main, .artwork6Main,
+            .artwork7Main, .artwork8Main {
+                width: 100%;
+
+            }
+
+            .artwork6Main, .artwork8Main { width: 100%; margin-top: 300px; }
+            
+            .artwork1Caption, .artwork2Caption, .artwork3Caption, .artwork4Caption,
+            .artwork5Caption, .artwork6Caption, .artwork7Caption, .artwork8Caption {
+                margin-left: 140px;
+                
+            }
+
+            .artwork6Caption {
+                margin-left: 170px;
+            }
+        
+            .artworkText > p {
+                width: 70%;
+                font-size: 14px;
+            }
+        
+            .interviewVideo > iframe { width: 400px; height: 250px; }
+            .yezi, .heo {
+                width: 100%;
+                text-align: center;
+                margin-left: 20px;
+            }
+        
+            .link {
+                margin-left: 17%;
+            }
+
+            .artwork2Note, .artwork3Note, .artwork4Note,
+            .artwork5Note,  .artwork6Note, .artwork7Note
+            ,.artwork8Note {
+                order: 2; /* 아트워크 노트를 두 번째로 설정 */
+            }
+        
+            .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main, .artwork6Main
+            .artwork7Main, .artwork8Main {
+                order: 1; /* 작품 이미지를 첫 번째로 설정 */
+            }
+        }
+        .artistSection {height: 350px;}
+
+        
     </style>
 </head>
 <body>
-    <div id="wrap">
-        <div class="bgText">In the context of Korean culture, "eol" is often associated with <br>
-            qualities such as integrity, perseverance, and a profound sense of <br>
-            purpose. It is considered a fundamental element that shapes one's <br>
-            actions, values, and life path. The concept of "eol" also extends to the <br>
-            collective consciousness, representing the shared spirit and cultural <br>
-            identity of the Korean people.</div>
-        <header>
-            <div class="nameBox">
-                <div class="name1">Y E J I  M O O N</div>
-                <div class="name2">J I H O E  K O O</div>
-                <div class="name3">J E O N G  H U R</div>
-            </div>
-            <div class="dateBox">
-                <div class="date">2024. 12. 9 - 2025. 1. 8</div>
-            </div>
-        </header>
-        <section id="mainSection">
-            <h1 class="blink">얼:[əl]</h1>
-            <h2 class="blink">in NewYork</h2>
-        </section>
-        <aside>
-            <div><img src="arrow.png" id="floatingArrow" alt=""></div>
-            <div class="asideText">
-                "Eol" is a uniquely Korean concept that<br>
-                doesn't have a direct equivalent in<br>
-                English. It refers to the innate spirit,<br>
-                soul, or essential character of a person,<br>
-                community, or culture. This term<br>
-                embodies the idea of a deep, intrinsic<br>
-                force that defines the core identity and<br>
-                resilience of individuals or groups.<br>
-                In the context of Korean culture, "eol" is<br>
-                often associated with qualities such as<br>
-                integrity, perseverance, and a profound<br>
-                sense of purpose. It is considered a<br>
-                fundamental element that shapes one's<br>
-                actions, values, and life path. The<br>
-                concept of "eol" also extends to the<br>
-                collective consciousness, representing<br>
-                the shared spirit and cultural identity of<br>
-                the Korean people.<br>
-                Overall, "eol" encapsulates a rich and<br>
-                multifaceted understanding of the<br>
-                human spirit, emphasizing moral<br>
-                fortitude, cultural pride, and an<br>
-                unwavering commitment to one's<br>
-                principles and heritage.<br>
-            </div>
-        </aside>
-        <article>
-            <section class="texttTitle">
-                <h3>전시개요</h3>
-            </section>
-            <section class="textBox">
-                <div class="textBox1">
-                    <p class="textKR">《얼:[əl] in NewYork》은 타지에서 외국인으로서 활동하며 정체성을 표현하는 다양한 방식을 보여주는 
-                        프로젝트의 첫번째로, 뉴욕에서 활동 중인 구지회, 문예지, 허정 작가와 함께한다. 이들은 외지에서 새로운 경험을 
-                        하며 쌓은 시간 하나하나로 자신의 정체성을 견고하게 만들고 있다. <br>
-                     </p>
+    <div class="navBox">
+        <nav class="mainNav">
+            <ul>
+                <li><a href="index.html">전시개요</a></li>
+                <li><a href="insight.html">Insight</a></li>
+                <li style="height: 50px">
+                    <a href="el.html" style="color: #ff4f4f; font-weight: bolder;">얼</a>
+                    <nav class="subNav">
+                        <ul>
+                            <li style="color: #ff4f4f; font-weight : bold;">구지회</li>
+                            <li>
+                                <a href="yezi.html">문예지</a></li>
+                            <li>
+                                <a href="jeong.html">허정</a>
+                                </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li><a href="outsight.html">Outsight</a></li>
+                <li class="guestBook"><a href="guestBook.html">Guest book</a></li>
+            </ul>
+        </nav>
+    </div>
+        <div class="contents">
+            <section class="artwork">
+                <!-- 작품1 div -->
+                <div class="artwork1">
+                    <div class="portrait">
+                            <div class="portraitIMG">
+                                <img src="portraitKoo.png" alt="">
+                            </div>
+                            <div class="portraitText">
+                                <h3>Jihoe Koo</h3>
+                                <p>에칭 기법을 이용하여 작품을 시작하였으며 
+                                    아이들의 모습에서 어린 시절의 기억과 자신을 반영한 판화 시리즈 
+                                    <Series of childhood memories>를 제작한다. 
+                                        작가의 작업은 실을 표면에 붙이거나 종이에 꿰매 붙임으로써 
+                                        드로잉과 콜라주를 결합하는 형식으로 발전해 왔다. 
+                                        위와 같은 작업들을 통해 작가는 자신이 탐구한 기억과
+                                         시간의 조각들을 표현한다.</p>
+                            </div>
+                    </div>
+                    <div class="artWork">
+                        <div class="artwork1IMG">
+                            <img src="JIhoeKoo_01.jpg" alt="">
+                        </div>
+                        <div class="artwork1Caption">
+                            <div class="artwork1_title">No one calls me_Waiting</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">Digital print with colored marker, color pencil,<br> photo
+                                collages on printmaking <br>
+                                19 x 13 inch, 2015.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="textBox2">     
-                     <p class="textKR2">
-                       ‘얼’ 은 한국의 고유한 단어로 정신의 줏대를 의미한다. 타지에서 자신만의 정체성을 구축해가는 이들의
-                        얼을 관객들에게 선보이며 전시에 참여하는 모든 이들은 이 전시를 통해 연결 고리를 만들게 된다. 본 전시
-                        는 온라인 전시로 진행된다. 이 전시를 통해 관람자들에게 자신만의 ‘얼’에 대해 생각하고 소통하는 기회를 제공하고자 한다. <br><br><br><br>
-                     </p>
+                <!-- 작품2 구역 -->
+                <div class="artwork2">
+                    <div class="artwork2Note">
+                        <p>
+                        </p>
+                    </div>
+                    <div class="artwork2Main">
+                        <div class="artwork2IMG">
+                            <img src="JihoeKoo_02.jpg" alt="" >
+                        </div>
+                        <div class="artwork2Caption"> 
+                            <div class="artwork2_title">Nothing in there!</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">Digital print with colored marker, color pencil, <br> photo collages on
+                                printmaking <br>
+                                19 x 13 inch, 2015.</div>
+                        </div>
+                    </div>
                 </div>
+                <!-- 작품3 구역 -->
+                <div class="artwork3">
+                    <div class="artwork3Note">
+                        <p id="description3">
+                            You can move forward. <br>
+                            But you can not go back. <br>
+                             New York subway turnstile spin is like time. <br>
+                            <br>
+                            앞으로 나아갈 수는 있지만 <br>
+                            다시 돌아갈 수 없다. <br>
+                            뉴욕 지하철의 출구 회전문은 <br>
+                            시간과 같다.
+                        </p>
+                    </div>
+                    <div class="artwork3Main">
+                        <div class="artwork3IMG">
+                            <img src="JihoeKoo_03.jpg" alt="" >
 
-                <div class="textBox3">
-                    <p class="textENG">《얼: [əl] in New York》 is the first project in a series that shows various ways of expressing
-                        identity as a foreigner living abroad. It features Jihoe Koo, Yeji Moon, and Jeong Heo, who are
-                        artists in New York. These individuals are solidifying their identities through every new experience
-                        they gain while living away from their home country.
-                         <br>
-                </div>
-                <div class = "textBox4">
-                     <p class="textENG2">
-                        The term ‘얼’ is a indigenous Korean word meaning the essence of one's spirit or resolve. By
-                        presenting the ‘얼’ of those who are building their identities in a foreign land, this exhibition aims to
-                        create a connection between the participants and the audience. The exhibition will be held online,
-                        providing viewers with the opportunity to reflect on and engage with their own '얼'.
-                     </p>
+                        </div>
+
+                        <div class="artwork3Caption">
+                            <div class="artwork3_title">
+                                <button class="Sbutton" id="searchButton3" >
+                                    <img src="search.png" style="width: 14px; height: 12px;" alt="">
+                                </button>
+                                Out, not in!</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">
+                                Digital print with colored marker, color pencil,<br> photo
+                                collages and stencil on printmaking <br>
+                                19 x 13 inch, 2021.</div>
+                        </div>
+                        
+                    </div>
                 </div>
                 
-                 <div class="BUTTON">
-                    <button onclick="locaation.href='insight.html'">전시 보러가기 ></button>
+                <div class="artwork4">
+                    <div class="artwork4Note">
+                        <p id="description4">
+                            The blue bird. (by Jihoe Koo) <br>
+                            Happiness was neither dream nor fantasy.<br>
+                            It was not far from me.<br>
+                            It was right now.<br>
+                            It was not happy even if I could have the blue bird.<br>
+                            Even without the blue bird,<br>
+                            Happiness is to love my being.<br>
+                            It is the present time to challenge my life and take adventure.<br>
+                            Are you happy now?<br>
+                            <br>
+                            행복이란 꿈도 환상도 아니었다.<br>
+                            바로 지금인 것이었다.<br>
+                            파랑새를 가져야만 행복한 것은 아니었다.<br>
+                            파랑새가 없어도,<br>
+                            지금의 나의 존재를 사랑하며<br>
+                            개척하고 도전하며<br>
+                            만들어가는 삶의 시간들이<br>
+                            바로 행복인 것이다.<br>
+                            당신은 지금 행복한가요?<br>
+                        </p>
+                    </div>
+                    <div class="artwork4Main">
+                        <div class="artwork4IMG">
+                            <img src="JihoeKoo_04.jpg" alt="" >
+                        </div>
+
+                        <div class="artwork4Caption">
+
+                            <div class="artwork4_title"><button class="Sbutton" id="searchButton4" ><img src="search.png" 
+                                style="width: 14px; height: 12px;" alt=""></button>
+                                Blue bird_Happy Encounter</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">
+                                Digital print with colored marker, color pencil,<br> photo
+                                collages on printmaking <br>
+                                19 x 13 inch, 2017.</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="artwork5">
+                    <div class="artwork5Note">
+                        <p id="description5">
+                            You and I caught by the parks heavy rain <br>
+                            With a single umbrella<br>
+                            “Take it first!”<br>
+                            “You take it first!”<br>
+                            Passing the umbrella back and forth,<br>
+                            We end up drenched in rain.<br>
+                            And we giggle and we dance<br>
+                            to the sound of the rain drops.<br>
+                            You and I, everything is different<br>
+                            We can't ever be the same<br>
+                            “I'm not like you.”<br>
+                            “You’re not like me.”<br>
+                            Our lives are upside down<br>
+                            Yet they cross<br>
+                            Perfectly perpendicular.<br>
+                            However, just as we laugh<br>
+                            and just as we get drenched<br>
+                            We are one (1) with the same feeling.<br>
+                            Perfectly perpendicular<br>
+                            Like the reciprocal, we learned in math.<br>
+                            <br>
+                            너와 나, 큰비를 만났지<br>
+                            우리에겐 하나뿐인 우산<br>
+                            “네가 먼저 가져가!”<br>
+                            “네가 먼저 가져가!”<br>
+                            우산을 서로 주고받고 양보하다가,<br>
+                            그만 비에 흠뻑 젖어버렸지.<br>
+                            우리는 서로 깔깔 웃으며, 빗방울 소리에 맞춰 춤을 추었지.<br>
+                            너와 나, 우리는 모두 다르지<br>
+                            같은 모양이 될 수 없는 우리들<br>
+                            “넌 나랑 달라!”<br>
+                            “난 너랑 달라!”<br>
+                            우리의 형태는 서로 거꾸로 되어 있지.<br>
+                            우리는 우리의 삶 속에서 교차하며 살고 있지.<br>
+                            그러나, 너와 내가 함께 웃으며 비를 맞을 수 있듯이<br>
+                            같은 마음으로 우리는 하나 (1) 가 될 수 있지.<br>
+                            <br>
+                            수학의 역수처럼.<br>
+                        </p>
+                        <div class="bg"></div>
+                        
+                    </div>
+                    <div class="artwork5Main">
+                        <div class="artwork5IMG">
+                            <img src="jihoeKoo_05.jpg" alt="" >
+                        </div>
+
+                        <div class="artwork5Caption">
+                            <div class="artwork5_title">
+                                <button class="Sbutton" id="searchButton5" ><img src="search.png" 
+                                    style="width: 14px; height: 12px;" alt=""></button>
+                                Reciprocal</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">
+                                Digital print with colored marker, color pencil,<br> photo
+                                collages on printmaking <br>
+                                19 x 13 inch, 2024.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork6">
+                    <div class="artwork6Note">
+                        <p id="description6">
+                            Note: <br>
+                            'Red Stockings' is inspired by the 1950s <br>
+                            French film 'The Red Balloon'. The story<br>
+                            begins with a red balloon flying towards<br>
+                            the window where a little child was<br>
+                            standing. The child and the red balloon <br>
+                            do not audibly speak, but communicate <br>
+                            through gestures. However, the red 
+                            balloon pops after being hit by a <br>
+                            slingshot by neighborhood children.
+                            Pascal, the little child, sees a balloon 
+                            popped and is upset because he cannot
+                            save the red balloon. He feels sad that
+                            he could no longer see the red balloon;<br>
+                            his only friend. But as if to console his <br>
+                            heart, balloons of all sorts of colors<br>
+                            gather and fly together over the roofs
+                            of the city, Paris. As their strings hold <br>
+                            onto little Pascal. That’s how the movie <br>
+                            ‘Red Balloon’ ends. The last scene <br>
+                            remained in my mind for a long time. As<br>
+                            a mother, I thought of that scene every
+                            time I pushed the swing behind my
+                            children and hoped that they would be <br>
+                            able to look at the world with eyes and
+                            mind from high in the skies.@2024
+
+                            '레드 스타킹'은 1950년대 프랑스 영화 '빨간 <br>
+                            풍선'에서 영감을 받은 작품이다. 이야기는<br>
+                            어느 날 어린 아이가 서 있는 창문을 향해 <br>
+                            날아온 빨간 풍선과의 만남으로부터 시작된다.<br>
+                            아이와 빨간 풍선은 소리로 말하는 것이<br>
+                            아니라 몸짓으로 소통한다. 그러나, 동네 아이<br>
+                            들의 새총에 맞아 빨간 풍선이 터지고 만다.<br>
+                                어린 아이 파스칼은 터진 풍선을 보고 빨간<br>
+                            풍선을 구할 수 없어 속상해한다. 그는 더 이상<br>
+                            빨간 풍선을 볼 수 없다는 사실에 슬퍼한다.<br>
+                            그의 유일한 친구. 그러나 그의 마음을 위로하<br>
+                            려는 듯, 온갖 색의 풍선들이 모여 그가 붙잡고<br>
+                            있는 풍선 끈으로 인해 파리 도시의 지붕 위로<br>
+                            함께 날아간다. 그렇게 영화 '빨간풍선'은 끝이<br>
+                            난다. 그 마지막 장면은 내 기억 속에 오랫동안<br>
+                            남겨져 있다. 엄마가 되어 아이들 뒤에서 그네<br>
+                            를 밀어 줄 때마다 그 장면이 떠올랐고, 난<br>
+                            아이들이 높은 곳에서 눈과 마음으로 세상을<br>
+                            넓게 바라볼 수 있기를 바랐다.
+                        </p>
+                    </div>
+                    <div class="artwork6Main">
+                        <div class="artwork6IMG">
+                            <img src="JihoeKoo_06.jpg" alt="" >
+                        </div>
+
+                        <div class="artwork6Caption">
+                            <div class="artwork6_title">
+                                <button class="Sbutton" id="searchButton6" ><img src="search.png" 
+                                    style="width: 14px; height: 12px;" alt=""></button>
+                                Red stockings</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">
+                                Digital print with colored marker, color pencil,<br> photo
+                                collages on printmaking <br>
+                                13 x 19 inch, 2024.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork7">
+                    <div class="artwork7Note">
+                        <p id="description7">
+                            It was a long day. <br>
+                            Waiting time for mom<br>
+                            It was longer than the New York subway.<br>
+                            It was a long day.<br>
+                            Waiting time for mom<br>
+                            It was longer than those standing on the platform.<br>
+                            It was a long day.<br>
+                            Waiting time for mom<br>
+                            It was longer than my day.<br>
+                            <br>
+                            긴 하루였습니다.<br>
+                            엄마를 기다리는 시간은<br>
+                            뉴욕 지하철보다 길었습니다.<br>
+                            긴 하루였습니다.<br>
+                            엄마를 기다리는 시간은<br>
+                            플랫폼에서 기다리는 사람들보다 길었습니다.<br>
+                            긴 하루였습니다.<br>
+                            엄마를 기다리는 시간은<br>
+                            나의 하루보다 더 길었습니다.<br>
+                        </p>
+                    </div>
+                    <div class="artwork7Main">
+                        <div class="artwork7IMG">
+                            <img src="JIhoeKoo_07.jpg" alt="" >
+
+                        </div>
+
+                        <div class="artwork7Caption">
+                            <div class="artwork7_title">
+                                <button class="Sbutton" id="searchButton7" ><img src="search.png" 
+                                    style="width: 14px; height: 12px;" alt=""></button>
+                                Long day</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">
+                                Digital print with colored marker, color pencil,<br> photo
+                                collages on printmaking <br>
+                                19 x 13 inch, 2021.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="artwork8">
+                    <div class="artwork8Main">
+                        <div class="artwork8IMG">
+                            <img src="JIhoeKoo_08.jpg" alt="">
+                        </div>
+
+                        <div class="artwork6Caption">
+                            <div class="artwork8_title">Little girls with Hula hoops</div>
+                            <div style="color: #909090; font-size :14px; line-height : 19px;">
+                                Digital print with colored marker, color pencil,<br> photo
+                                collages on printmaking <br>
+                                13 x 19 inch, 2017.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="artworkText">
+                    <p>서울에서 태어나 프랑스와 한국에서 미술 교육을 받은 뒤 뉴욕을 기반으로 활동하는 작가 구지회는 판화, 일러스트레이션, 설치 미술 등 다양한 매체에서 작업해 왔습니다. 그녀는
+                        어린 시절과 자기 재발견을 중심으로 한 판화 시리즈 '어린 시절 추억'과 콜라주 시리즈 '내가 가장 좋아하는 것들'과 같이 시간과 기억이라는 주제를 탐구하는 데 관심이 있습니다.
+                        그녀의 작업은 디지털 판화로 시작하여 나중에 사진, 리노컷, 스텐실, 컬러 마커, 흰색 펜 및
+                        실을 통한 드로잉과 콜라주로 확장되었습니다. 아이들의 몸짓, 기분, 추억, 장소, 어린 시절
+                        좋아했던 것들을 통해 내면의 모든 감정 상태를 표현하는 것을 목표로 합니다. 그림 속의
+                        아이들은 보는 이의 누구나 될 수 있습니다. 
+                        그것은 관람자 자신의 어린 시절을 상기시키는 역할을 합니다. 
+                        그녀의 판화 작품이 사람들과 '공감'을 나눌 수 있는 가교 역할이 될 것이라고 믿습니다.
+                         아이들은 거울이 됩니다.
+                    </p>
                 </div>
             </section>
-        </article>
+            <section>
+                <div class="interview">
+                    <div class="interviewH3"><h3>Artist Interview</h3></div>
+                    <div class="interviewVideo">
+                        <iframe width="738" height="415"
+                        src="kooVideo.mp4" frameborder="0" allow="clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="link">
+                        <div class="insta">
+                            <img src="instagram.png" alt="">
+                            <span>Jihoe_Koo</span>
+                        </div>
+                        <div class="mail">
+                            <img src="mail.png" alt="">
+                            <span>giokooart@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div style="height: 300px;"></div>
+            <section class="artist">
+                <div class="artistSection">
+                    <div class="artistH3"><h3>The other aritst</h3></div>
+                    <div class="otherArtist">
+                        <div class="yezi"><a href="yezi.html"><img src="moonLogo.png" id="moonLogo" alt=""><span></span></a></div>
+                        <div class="heo"><a href="jeong.html"><img src="hurLogo.png" id="hurLogo" alt=""></a></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script>
+        // searchButton 클릭 시 p 태그의 display 속성을 변경하는 함수
+        document.getElementById('searchButton3').addEventListener('click', function() {
+            var description = document.getElementById('description3');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+        
+        document.getElementById('searchButton4').addEventListener('click', function() {
+            var description = document.getElementById('description4');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
 
-    </div>
+        document.getElementById('searchButton5').addEventListener('click', function() {
+            var description = document.getElementById('description5');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+
+        document.getElementById('searchButton6').addEventListener('click', function() {
+            var description = document.getElementById('description6');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+
+        document.getElementById('searchButton7').addEventListener('click', function() {
+            var description = document.getElementById('description7');
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block'; // p 태그를 보이게 함
+            } else {
+                description.style.display = 'none'; // p 태그를 숨김
+            }
+        });
+
+        </script>
+        <script>
+            // 이미지 요소 선택
+            const moonLogo = document.getElementById('moonLogo');
+            const hurLogo = document.getElementById('hurLogo');
+    
+            // 마우스 오버 이벤트
+            moonLogo.addEventListener('mouseover', function() {
+                moonLogo.src = 'moonLogo2.png'; // 마우스 오버 시 변경할 이미지
+            });
+    
+            moonLogo.addEventListener('mouseout', function() {
+                moonLogo.src = 'moonLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+            });
+    
+            hurLogo.addEventListener('mouseover', function() {
+                hurLogo.src = 'hurLogo2.png'; // 마우스 오버 시 변경할 이미지
+            });
+    
+            hurLogo.addEventListener('mouseout', function() {
+                hurLogo.src = 'hurLogo.png'; // 마우스가 나갔을 때 원래 이미지로 복원
+            });
+        </script>
 </body>
 </html>
