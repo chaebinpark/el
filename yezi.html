@@ -97,7 +97,7 @@
         }
 
         .artwork2Note, .artwork3Note, .artwork4Note,
-        .artwork5Note,  .artwork7Note
+        .artwork5Note, .artwork6Note, .artwork7Note
         ,.artwork8Note {
             width: 50%;
             display: flex; /* Flexbox 사용 */
@@ -108,7 +108,7 @@
         }
         
         .artwork2Note > p, .artwork3Note > p , .artwork4Note > p,
-        .artwork5Note > p, .artwork7Note > p,
+        .artwork5Note > p, .artwork7Note > p, .artwork6Note > p,
         .artwork8Note > p {
             width: 65%;
             line-height: 30px;
@@ -116,8 +116,8 @@
         }
 
 
-        .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main,
-        .artwork7Main, .artwork8Main{     
+        .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main,.artwork6Main
+        .artwork7Main, .artwork8Main ,.artwork6Main, .artwork8Main{     
             width: 50%;
             display: flex; /* Flexbox 사용 */
             align-items: center; /* 수직 중앙 정렬 */
@@ -133,21 +133,17 @@
             text-align: right;
             font-size: 16px;
             line-height: 22px;
-            margin-top: 25px;
-           
+            margin-top: 10px;
+            margin-right: 5%;
         }
         
+        .artwork6IMG > img {
+            width: 93%;
+        }
         /* 반복 css, artwork 레이아웃 끝 */
         
-        /* artwork6 css */
-        .artwork6Main, .artwork8Main {
-            width: 91%;
-            display: flex; /* Flexbox 사용 */
-            flex-direction: column; /* 세로 방향으로 변경 */
-            align-items: flex-end; /* 오른쪽 정렬 */
-        }
-
-
+        .artwork8Main { width: 100%;}
+        .artwork8Caption {margin-left: 20%;}
 
 
         /* artwork6 css 끝 */
@@ -239,7 +235,7 @@
             flex-direction: column; /* 세로 방향으로 정렬 */
             align-items: flex-end; /* 오른쪽 정렬 */
             margin-top: 20px; /* 위쪽 여백 추가 */
-            width: 77%;
+            width: 74%;
         }
         
         .insta, .mail {
@@ -305,16 +301,10 @@
             font-weight: 800; /* Extra Bold */
         }
 
-        .artwork3IMG > img {
-            position: relative;
-            z-index: 0;
-        }
+
 
         .Sbutton {
-            position: absolute;
-            right: 10%;
-            margin-top: 29%;
-            z-index: 1;
+            text-align: right;
             /* 기본 배경 및 테두리 없애기 */
             background: none; /* 배경 없애기 */
             border: none; /* 테두리 없애기 */
@@ -325,10 +315,7 @@
             display: none;
         }
 
-        #searchButton2 {
-            margin-top: 48%;
-            right: 10%;
-        }
+
 
 
         @media (max-width : 1220px) {
@@ -360,7 +347,7 @@
                 margin-right: 35px;
             }
 
-            .artwork1, .artwork2, .artwork3, .artwork4, .artwork5, .artwork7, .artwork8 {
+            .artwork1, .artwork2, .artwork3, .artwork4, .artwork5, .artwork6, .artwork7, .artwork8 {
                 flex-direction: column; /* 모바일에서 세로 방향으로 줄바꿈 */
                 align-items: center; /* 가로 중앙 정렬 */
                 margin-bottom: 40px; /* 각 아트워크 섹션 간의 간격 */
@@ -376,9 +363,6 @@
                 height: 800px;
             }
 
-            .artwork2 {
-                margin-top: 800px;
-            }
             
 
             .artwork1IMG, .artwork2IMG, .artwork3IMG, .artwork4IMG, .artwork5IMG, .artwork7IMG, .artwork8IMG {
@@ -425,11 +409,12 @@
             }
 
             .artwork6Main, .artwork8Main { width: 100%; margin-top: 300px; }
-            .artwork6Caption{ margin-right: 20px;}
+
 
             .artwork1Caption, .artwork2Caption, .artwork3Caption, .artwork4Caption
             ,.artwork5Caption, .artwork6Caption, .artwork7Caption, .artwork8Caption {
-                margin-left: 100px;
+                margin-left: 160px;
+
             } 
 
             .artworkText > p {
@@ -459,13 +444,6 @@
                 order: 1; /* 작품 이미지를 첫 번째로 설정 */
             }
 
-            .Sbutton {
-                margin-top: 400px;
-            }
-
-            #searchButton2 {
-                margin-top: 135%;
-            }
             
 
         }
@@ -518,9 +496,9 @@
                             <img src="yezi2.png" alt="" style="width: 450px;">
                         </div>
                         <div class="artwork1Caption">
-                            <div class="artwork1_title">New York City at night</div>
+                            <div class="artwork1_title">Empire State Building at dawn</div>
                             <div style="color: #909090; font-size :14px; line-height : 19px;">newspaper on canvas <br>
-                                60 x 48 inch, 2022.</div>
+                                48 x 30 inch, 2022.</div>
                         </div>
                     </div>
                 </div>
@@ -536,14 +514,17 @@
                     <div class="artwork2Main">
                         <div class="artwork2IMG">
                             <img src="yezi1.png" alt="" style="width: 450px;">
-                            <button class="Sbutton" id="searchButton2" >
-                                <img src="wSearch.png" style="width: 18px; height: 16px;" alt="">
-                            </button>
+
                         </div>
                         <div class="artwork2Caption"> 
-                            <div class="artwork2_title">Empire State Building at dawn</div>
+                            <div class="artwork2_title">
+                                <button class="Sbutton" id="searchButton2" >
+                                    <img src="search.png" style="width: 14px; height: 12px;" alt="">
+                                </button>
+                                New York City at night
+                            </div>
                             <div style="color: #909090; font-size :14px; line-height : 19px;">newspaper on canvas <br>
-                                48 x 30 inch, 2022.</div>
+                                60 x 48 inch, 2022.</div>
                         </div>
                     </div>
                 </div>
@@ -559,13 +540,14 @@
                     <div class="artwork3Main">
                         <div class="artwork3IMG">
                             <img src="yezi3.png" alt="" style="width: 450px;">
-                            <button class="Sbutton" id="searchButton3" >
-                                <img src="search.png" style="width: 18px; height: 16px;" alt="">
-                            </button>
                         </div>
 
                         <div class="artwork3Caption">
-                            <div class="artwork3_title">Manhattan water reflection</div>
+                            <div class="artwork3_title">
+                                <button class="Sbutton" id="searchButton3" >
+                                    <img src="search.png" style="width: 14px; height: 12px;" alt="">
+                                </button>
+                                Manhattan water reflection</div>
                             <div style="color: #909090; font-size :14px; line-height : 19px;">
                                 newspaper on canvas<br>
                                 36 x 36 inch, 2022.</div>
@@ -609,6 +591,10 @@
                     </div>
                 </div>
                 <div class="artwork6">
+                    <div class="artwork6Note">
+                        <p>
+                        </p>
+                    </div>
                     <div class="artwork6Main">
                         <div class="artwork6IMG">
                             <img src="yezi6.png" alt="" >
@@ -624,17 +610,19 @@
                     </div>
                 </div>
                 <div class="artwork8">
+                    <div class="artwork5Note">
+                        <p>
+                        </p>
+                    </div>
                     <div class="artwork8Main">
                         <div class="artwork8IMG">
                             <img src="yezi7.png" alt="">
                         </div>
 
-                        <div class="artwork6Caption">
-                            <div class="artwork8_title">Little girls with Hula hoops</div>
+                        <div class="artwork8Caption">
+                            <div class="artwork8_title">Seoul panorama - Namsan Tower,</div>
                             <div style="color: #909090; font-size :14px; line-height : 19px;">
-                                Digital print with colored marker, color pencil,<br> photo
-                                collages on printmaking <br>
-                                13 x 19 inch, 2017.</div>
+                                newspaper on canvas, <br>30 x 48 inch, 2022.</div>
                         </div>
                     </div>
                 </div>
@@ -656,7 +644,7 @@
                     <div class="interviewH3"><h3>Artist Interview</h3></div>
                     <div class="interviewVideo">
                         <iframe width="738" height="415"
-                        src="moonVideo.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                        src="moonVideo.mp4" frameborder="0" allow="clipboard-write; encrypted-media;
                         gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                     </div>
