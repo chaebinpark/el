@@ -24,12 +24,14 @@
             
         }
 
+        /*so*/
+
         .mainNav {
             width: 100%;
             height: 100px;
             position: fixed; /* 고정 위치 설정 */
             top: 58px; /* 페이지 상단에 위치 */
-            left: 120px; /* 페이지 왼쪽에 위치 */
+            left: 4%; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
         }
         
@@ -38,7 +40,7 @@
             height: 100px;
             position: fixed;
             top: 103px; /* 페이지 상단에 위치 */
-            left: 155px; /* 페이지 왼쪽에 위치 */
+            left: 240px; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
             display: none; /* 기본적으로 숨김 */
             
@@ -315,7 +317,7 @@
         }
 
         .otherArtist img {
-            width: 70%;
+            width: 60%;
             z-index: 0;
             position: relative;
         }
@@ -357,8 +359,8 @@
                 background-color: rgba(217, 217, 217, 0); /* 데스크탑에서 초기 투명도 0 */
                 height: 70px;
             }
-            .mainNav li {font-size: 16px; margin-right: 50px;}
-            .mainNav {top: 30px; left: 50px;}
+            .mainNav li {font-size: 16px; margin-right: 40px;}
+            .mainNav {top: 30px; left: 25px;}
             .guestBook {margin-left: 280px;}
 
             img { width: 90%; }
@@ -380,10 +382,10 @@
             body { width: 100%; height: 4000px; overflow-x: hidden; /* 가로 스크롤바 숨기기 */ }
             .content { width: 100%; }
             .navBox { width: 100%; height: 50px; }
-            .mainNav li { font-size: 16px; margin-right: 40px; }
+            .mainNav li { font-size: 14px; margin-right: 25px; }
             .mainNav { top: 30px; left: 20px; }
             .guestBook { margin-left: 60px; }
-            .subNav { top: 60px; left: 22px; }
+            .subNav { top: 60px; left: 80px; }
         
             .subNav > ul > li {
                 font-size: 14px;
@@ -477,7 +479,7 @@
                 order: 1; /* 작품 이미지를 첫 번째로 설정 */
             }
         }
-        
+        .artistSection {height: 350px;}
 
         
     </style>
@@ -492,7 +494,7 @@
                     <a href="el.html" style="color: #ff4f4f; font-weight: bolder;">얼</a>
                     <nav class="subNav">
                         <ul>
-                            <li style="color: #ff4f4f; font-weight : bold;">구지희</li>
+                            <li style="color: #ff4f4f; font-weight : bold;">구지회</li>
                             <li>
                                 <a href="yezi.html">문예지</a></li>
                             <li>
@@ -572,7 +574,9 @@
                     <div class="artwork3Main">
                         <div class="artwork3IMG">
                             <img src="JihoeKoo_03.jpg" alt="" >
-                            <button class="Sbutton" id="searchButton3" ><img src="search.png" style="width: 18px; height: 16px;" alt=""></button>
+                            <button class="Sbutton" id="searchButton3" >
+                                <img src="search.png" style="width: 18px; height: 16px;" alt="">
+                            </button>
                         </div>
 
                         <div class="artwork3Caption">
